@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David - Consultant & Developer</title>
+    <meta name="description" content="David's digital garden - Consultant and developer based in Melbourne">
+    
+    <!-- Minimal inline CSS for performance and simplicity -->
+    <style>
+        /* CSS Variables */
+        :root {
+            --color-background: #FFFFFF;
+            --color-text: #000000;
+            --color-text-secondary: #333333;
+            --color-accent: #2D5016;
+            --color-accent-light: #4A6741;
+            --color-accent-soft: #7FB069;
+            --color-secondary: #F5F5F5;
+            --color-border: #E5E5E5;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--color-text-secondary);
+            background-color: var(--color-background);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        header {
+            background: var(--color-background);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+        }
+
+        section:first-child {
+            padding-top: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: var(--spacing-lg);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: var(--color-accent-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 1rem auto;
+            display: block;
+            object-fit: cover;
+            border: 4px solid var(--color-accent-soft);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .location {
+            font-size: 1.2rem;
+            color: var(--color-accent-light);
+            font-weight: 400;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .value-prop {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card h3 {
+            color: var(--color-accent);
+            margin-top: 0;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        /* List Styling */
+        ul {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: var(--spacing-md) 0;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+
+        .tech-item span:first-child {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-secondary);
+            padding: var(--spacing-lg) var(--spacing-md);
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: var(--spacing-md);
+        }
+
+        .social-link {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2);
+            color: var(--color-accent-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: flex;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            main {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-content">
+            <div class="site-title">DAVID</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Hi, I'm David 👋</h1>
+            <p class="location">Melbourne, Consultant</p>
+            
+            <div class="hero-photo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%237FB069'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='60'%3E👨‍💻%3C/text%3E%3C/svg%3E" 
+                     alt="David - Consultant and Developer" 
+                     class="profile-image" />
+            </div>
+            
+            <p class="value-prop">
+                I help businesses build sustainable growth through technology and strategic consulting. 
+                Welcome to my digital garden where I share insights, projects, and thoughts on 
+                building better digital experiences.
+            </p>
+        </section>
+
+        <!-- AI-Native Development Section -->
+        <section>
+            <div class="card">
+                <h2>AI-Native Development</h2>
+                <p>
+                    This website stands as a testament to a modern, AI-native software engineering workflow designed for speed, quality, and creative efficiency. The entire process, from the first idea to the live deployment on Amazon Web Services (AWS), was powered by a suite of intelligent, interconnected tools.
+                </p>
+
+                <h3 style="text-align: center; color: var(--color-accent); margin-top: 2rem;">Workflow</h3>
+                <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;">
+                    <div style="min-width: 120px; text-align: center;">
+                        <div style="font-weight: 700; color: var(--color-accent);">Ideate</div>
+                        <div style="font-size: 0.95rem; color: var(--color-accent-light);">Linear</div>
+                        <div style="font-size: 0.9rem; color: #333; margin-top: 4px;">AI refines ideas<br>into actionable requirements</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--color-accent-soft); margin: 0 0.5rem;">→</div>
+                    <div style="min-width: 120px; text-align: center;">
+                        <div style="font-weight: 700; color: var(--color-accent);">Build</div>
+                        <div style="font-size: 0.95rem; color: var(--color-accent-light);">Cursor</div>
+                        <div style="font-size: 0.9rem; color: #333; margin-top: 4px;">Context-aware AI<br>coding partner</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--color-accent-soft); margin: 0 0.5rem;">→</div>
+                    <div style="min-width: 120px; text-align: center;">
+                        <div style="font-weight: 700; color: var(--color-accent);">Deploy</div>
+                        <div style="font-size: 0.95rem; color: var(--color-accent-light);">AWS + Terraform</div>
+                        <div style="font-size: 0.9rem; color: #333; margin-top: 4px;">Infrastructure as code,<br>fully automated</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--color-accent-soft); margin: 0 0.5rem;">→</div>
+                    <div style="min-width: 120px; text-align: center;">
+                        <div style="font-weight: 700; color: var(--color-accent);">Ship</div>
+                        <div style="font-size: 0.95rem; color: var(--color-accent-light);">GitHub Actions</div>
+                        <div style="font-size: 0.9rem; color: #333; margin-top: 4px;">Intelligent CI/CD pipeline</div>
+                    </div>
+                </div>
+
+                <h3 style="text-align: center; color: var(--color-accent); margin-top: 2rem;">Tech Stack</h3>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <span>📈</span>
+                        <span>Linear</span>
+                    </div>
+                    <div class="tech-item">
+                        <span>🤖</span>
+                        <span>Cursor AI</span>
+                    </div>
+                    <div class="tech-item">
+                        <span>☁️</span>
+                        <span>AWS + Terraform</span>
+                    </div>
+                    <div class="tech-item">
+                        <span>⚙️</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Projects Section -->
+        <section id="projects">
+            <h2>Projects I'm Working On</h2>
+            <p>
+                This digital garden contains a collection of different proof of concepts and projects. 
+                Including but not limited to:
+            </p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Voice & Chat Agent</h3>
+                    <p>An intelligent conversational AI that can handle both voice and text interactions, powered by a comprehensive FAQ knowledge base.</p>
+                    <p><strong>Technologies:</strong> OpenAI, Speech-to-Text, Natural Language Processing, Vector Database</p>
+                </div>
+                <div class="card">
+                    <h3>IT Vendor Market Scan Bot</h3>
+                    <p>Automated system that continuously scans and analyzes the IT vendor market, providing insights on pricing, capabilities, and market trends.</p>
+                    <p><strong>Technologies:</strong> Web Scraping, Data Analytics, Machine Learning, API Integration</p>
+                </div>
+                <div class="card">
+                    <h3>Autonomous Case Study Agent</h3>
+                    <p>An AI agent that automatically generates comprehensive case studies by analyzing project data, outcomes, and best practices.</p>
+                    <p><strong>Technologies:</strong> GPT-4, Document Processing, Data Analysis, Template Generation</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing Agents</h3>
+                    <p>A suite of AI-powered marketing agents that handle content creation, social media management, and campaign optimization.</p>
+                    <p><strong>Technologies:</strong> Content AI, Social Media APIs, Analytics, A/B Testing</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            
+            <div class="card">
+                <h3>Background and Journey</h3>
+                <p>
+                    My journey into the world of technology and business began with a curiosity about how systems work and a desire to make a meaningful impact. Growing up, I was always fascinated by the intersection of technology and business, which led me to pursue a Bachelor of Commerce & IT and later a Masters in Business Administration.
+                </p>
+                <p>
+                    I currently serve as a Senior Consultant at Slalom, where I focus on Technology Strategy, Cloud Transformation, and FinOps. My experience spans Cloud Architecture (AWS, Azure), Data Analytics, BI & AI (PowerBI, Snowflake, Salesforce), and IT Operating Models (ITSM).
+                </p>
+                <p>
+                    In my spare time, I enjoy running, board games, road trips, and the great outdoors, travelling and learning about foreign cultures.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Expertise</h3>
+                <h4>Services Offered</h4>
+                <ul>
+                    <li><strong>Technology Strategy:</strong> Technology Landscape Assessment, Technology operating models, Build vs Buy Analysis, Technology Vendor Market Scans</li>
+                    <li><strong>Business Analysis:</strong> Requirements gathering, Business case development</li>
+                    <li><strong>FinOps:</strong> Cloud FinOps strategy, Multi-platform FinOps, license management</li>
+                    <li><strong>Cloud Technologies:</strong> AWS Migration, Azure, Dynamics 365, Microsoft 365</li>
+                </ul>
+
+                <h4>Other Areas</h4>
+                <ul>
+                    <li><strong>AI & Automation:</strong> AI Use Case Discovery, AI Adoption, AI Strategy Development, AI Automation, AI enabled DevOps/Software Engineering</li>
+                    <li><strong>Data Analytics:</strong> PowerBI, Python, SQL, R</li>
+                    <li><strong>Agile Methodologies:</strong> Jira, Confluence</li>
+                </ul>
+
+                <h4>Industries Served</h4>
+                <ul>
+                    <li>Government and Public Sector</li>
+                    <li>Healthcare</li>
+                    <li>Education</li>
+                    <li>Technology</li>
+                    <li>Financial Services</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Technologies & Certifications</h3>
+                <h4>Technologies</h4>
+                <ul>
+                    <li><strong>Cloud:</strong> AWS, Azure, Dynamics 365</li>
+                    <li><strong>Data:</strong> PowerBI, Snowflake, Python, R, SQL</li>
+                    <li><strong>Integration:</strong> Mulesoft, AWS API Gateway, Model Context Protocol</li>
+                    <li><strong>CI/CD:</strong> Github Actions, Gitlab</li>
+                    <li><strong>Agile:</strong> Jira, Confluence, Linear</li>
+                    <li><strong>CRM:</strong> Salesforce, Microsoft Dynamics</li>
+                    <li><strong>AI:</strong> Voice Agents, Cursor, Github Copilot, Amazon Bedrock, n8n, Relevance AI</li>
+                </ul>
+
+                <h4>Certifications</h4>
+                <ul>
+                    <li>AWS Certified Solutions Architect – Professional (2024)</li>
+                    <li>FinOps Certified Practitioner (2023)</li>
+                    <li>Salesforce AI Associate (2024)</li>
+                    <li>Generative AI Fundamentals (2023)</li>
+                    <li>AWS Certified SysOps Administrator – Associate (2023)</li>
+                    <li>Azure AI Fundamentals (2023)</li>
+                    <li>AWS Certified Solutions Architect – Associate (2022)</li>
+                    <li>Google Cloud Digital Leader (2022)</li>
+                    <li>Northwestern University - Leading with Analytics and AI (2022)</li>
+                    <li>ICAgile Certified Professional (2022)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="card">
+                <h3>Get in Touch</h3>
+                <p>
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                </p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:david.ding@findigo.com.au">david.ding@findigo.com.au</a>
+                </p>
+                <p>
+                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/david-ding-481bbb112/" target="_blank" rel="noopener">linkedin.com/in/david-ding-481bbb112</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 David. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/david-ding-481bbb112/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            <a href="mailto:david.ding@findigo.com.au" class="social-link" aria-label="Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
