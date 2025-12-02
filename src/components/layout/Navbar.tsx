@@ -3,10 +3,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 const navItems = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
 ]
 
 export function Navbar() {
@@ -40,6 +43,7 @@ export function Navbar() {
                     {/* Mobile Menu could go here */}
                     <div className="w-full flex-1 md:w-auto md:flex-none">
                     </div>
+                    <ThemeToggle />
                 </div>
             </div>
         </header>
