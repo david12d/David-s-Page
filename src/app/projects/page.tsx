@@ -16,28 +16,28 @@ const projects = [
         description:
             "A full-featured e-commerce platform built with Next.js, Stripe, and Prisma.",
         tags: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-        link: "#",
+        slug: "ecommerce-platform",
     },
     {
         title: "Task Management App",
         description:
             "A real-time task management application with drag-and-drop functionality.",
         tags: ["React", "Firebase", "Tailwind CSS"],
-        link: "#",
+        slug: "task-management-app",
     },
     {
         title: "AI Content Generator",
         description:
             "An AI-powered application that generates blog posts and social media content.",
         tags: ["OpenAI API", "Next.js", "Vercel AI SDK"],
-        link: "#",
+        slug: "ai-content-generator",
     },
     {
         title: "Portfolio Website",
         description:
             "My personal portfolio website built with Next.js and Tailwind CSS.",
         tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-        link: "#",
+        slug: "portfolio-website",
     },
 ]
 
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                         </CardContent>
                         <CardFooter>
                             <Button asChild className="w-full">
-                                <Link href={project.link}>
+                                <Link href={`/projects/${project.slug}`}>
                                     View Project <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
