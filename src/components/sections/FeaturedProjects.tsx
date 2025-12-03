@@ -40,7 +40,7 @@ const projects = [
 
 export function FeaturedProjects() {
     return (
-        <section id="projects" className="container space-y-8 py-12 md:py-24 lg:py-32 max-w-screen-2xl">
+        <section id="projects" className="container mx-auto space-y-8 py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32 max-w-screen-2xl">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
                     Featured Projects

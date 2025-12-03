@@ -23,7 +23,7 @@ const item = {
 
 export default function BlogPage() {
     return (
-        <div className="container max-w-screen-2xl py-12 md:py-24 lg:py-32">
+        <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

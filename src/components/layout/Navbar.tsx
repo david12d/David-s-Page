@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { CommandPalette } from "@/components/ui/command-palette"
 import { ContactDrawer } from "@/components/ui/contact-drawer"
 import { MoreHorizontal, Menu } from "lucide-react"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
+
 
 const navItems = [
     { name: "Home", path: "/" },
@@ -24,12 +24,12 @@ export function Navbar() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/0 backdrop-blur-md supports-[backdrop-filter]:bg-background/0">
                 <div className="container flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-8">
                     {/* Desktop Navigation */}
                     <div className="mr-4 hidden md:flex">
                         <Link href="/" className="mr-6 flex items-center space-x-2">
-                            <span className="hidden font-bold sm:inline-block">
+                            <span className="hidden font-bold sm:inline-block font-display text-xl tracking-tight">
                                 David Portfolio
                             </span>
                         </Link>
@@ -39,7 +39,7 @@ export function Navbar() {
                                     key={item.path}
                                     href={item.path}
                                     className={cn(
-                                        "transition-colors hover:text-foreground/80",
+                                        "transition-colors hover:text-foreground/80 font-sans",
                                         pathname === item.path ? "text-foreground" : "text-foreground/60"
                                     )}
                                 >
@@ -74,7 +74,6 @@ export function Navbar() {
                             >
                                 Let&apos;s Connect
                             </Button>
-                            <ThemeToggle />
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -87,9 +86,7 @@ export function Navbar() {
                             <Menu className="h-5 w-5" />
                             <span className="sr-only">Toggle menu</span>
                         </Button>
-                        <div className="md:hidden">
-                            <ThemeToggle />
-                        </div>
+
                     </div>
                 </div>
             </header>

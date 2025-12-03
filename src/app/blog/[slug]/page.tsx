@@ -41,7 +41,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <article className="container max-w-4xl py-12 md:py-24">
+        <article className="container mx-auto max-w-4xl py-12 px-6 md:px-12 lg:px-24 md:py-24">
             <Link href="/blog" className="inline-block mb-8">
                 <Button variant="ghost" size="sm">
                     <ArrowLeft className="mr-2 h-4 w-4" />
