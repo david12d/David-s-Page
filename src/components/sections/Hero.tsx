@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { heroContent } from "@/content/sections/hero"
 
 export function Hero() {
     return (
@@ -14,8 +15,8 @@ export function Hero() {
                     transition={{ duration: 0.5 }}
                     className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
                 >
-                    Building Digital <br className="hidden sm:inline" />
-                    <span className="text-primary">Experiences</span> That Matter
+                    {heroContent.heading.line1} <br className="hidden sm:inline" />
+                    <span className="text-primary">{heroContent.heading.line2}</span> {heroContent.heading.highlight}
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -23,8 +24,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
                 >
-                    I&apos;m David, a Full Stack Developer passionate about building accessible,
-                    pixel-perfect, and performant web applications.
+                    {heroContent.description}
                 </motion.p>
             </div>
             <motion.div
@@ -34,13 +34,13 @@ export function Hero() {
                 className="flex gap-4"
             >
                 <Button size="lg" asChild>
-                    <a href="#projects">
-                        View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                    <a href={heroContent.links.projects}>
+                        {heroContent.buttons.viewProjects} <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                    <a href="/resume.pdf" target="_blank">
-                        Download CV <Download className="ml-2 h-4 w-4" />
+                    <a href={heroContent.links.resume} target="_blank">
+                        {heroContent.buttons.downloadCV} <Download className="ml-2 h-4 w-4" />
                     </a>
                 </Button>
             </motion.div>

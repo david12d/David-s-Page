@@ -1,8 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { X, Mail, Github, Linkedin, Twitter } from "lucide-react"
+import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { contactDrawerContent } from "@/content/ui/contact-drawer"
 
 interface ContactDrawerProps {
     open: boolean
@@ -36,13 +37,13 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                 <div className="flex flex-col h-full">
                     {/* Header */}
                     <div className="flex items-center justify-between border-b p-6">
-                        <h2 className="text-2xl font-bold">Let&apos;s Connect</h2>
+                        <h2 className="text-2xl font-bold">{contactDrawerContent.heading}</h2>
                         <button
                             onClick={() => onOpenChange(false)}
                             className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                         >
                             <X className="h-5 w-5" />
-                            <span className="sr-only">Close</span>
+                            <span className="sr-only">{contactDrawerContent.accessibility.close}</span>
                         </button>
                     </div>
 
@@ -50,71 +51,34 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                     <div className="flex-1 overflow-y-auto p-6">
                         <div className="space-y-6">
                             <div>
-                                <h3 className="text-lg font-semibold mb-2">Get in Touch</h3>
+                                <h3 className="text-lg font-semibold mb-2">{contactDrawerContent.intro.heading}</h3>
                                 <p className="text-muted-foreground mb-4">
-                                    I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                                    {contactDrawerContent.intro.description}
                                 </p>
                             </div>
 
                             {/* Contact Methods */}
                             <div className="space-y-3">
-                                <a
-                                    href="mailto:your@email.com"
-                                    className="flex items-center gap-3 p-4 rounded-lg border hover:bg-accent transition-colors"
-                                >
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                                        <Mail className="h-5 w-5 text-primary" />
-                                    </div>
-                                    <div>
-                                        <div className="font-medium">Email</div>
-                                        <div className="text-sm text-muted-foreground">your@email.com</div>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://github.com/yourusername"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 rounded-lg border hover:bg-accent transition-colors"
-                                >
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                                        <Github className="h-5 w-5 text-primary" />
-                                    </div>
-                                    <div>
-                                        <div className="font-medium">GitHub</div>
-                                        <div className="text-sm text-muted-foreground">@yourusername</div>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://linkedin.com/in/yourusername"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 rounded-lg border hover:bg-accent transition-colors"
-                                >
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                                        <Linkedin className="h-5 w-5 text-primary" />
-                                    </div>
-                                    <div>
-                                        <div className="font-medium">LinkedIn</div>
-                                        <div className="text-sm text-muted-foreground">@yourusername</div>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://twitter.com/yourusername"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 rounded-lg border hover:bg-accent transition-colors"
-                                >
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                                        <Twitter className="h-5 w-5 text-primary" />
-                                    </div>
-                                    <div>
-                                        <div className="font-medium">Twitter</div>
-                                        <div className="text-sm text-muted-foreground">@yourusername</div>
-                                    </div>
-                                </a>
+                                {contactDrawerContent.contactMethods.map((method) => {
+                                    const Icon = method.icon
+                                    return (
+                                        <a
+                                            key={method.href}
+                                            href={method.href}
+                                            target={method.href.startsWith('http') ? "_blank" : undefined}
+                                            rel={method.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                                            className="flex items-center gap-3 p-4 rounded-lg border hover:bg-accent transition-colors"
+                                        >
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                                                <Icon className="h-5 w-5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <div className="font-medium">{method.label}</div>
+                                                <div className="text-sm text-muted-foreground">{method.value}</div>
+                                            </div>
+                                        </a>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>
@@ -122,11 +86,11 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                     {/* Footer */}
                     <div className="border-t p-6">
                         <Button
-                            onClick={() => window.open("https://calendly.com/yourusername", "_blank")}
+                            onClick={() => window.open(contactDrawerContent.footer.buttonUrl, "_blank")}
                             className="w-full"
                             size="lg"
                         >
-                            Book a Call
+                            {contactDrawerContent.footer.buttonLabel}
                         </Button>
                     </div>
                 </div>

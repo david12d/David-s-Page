@@ -7,15 +7,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { CommandPalette } from "@/components/ui/command-palette"
 import { ContactDrawer } from "@/components/ui/contact-drawer"
-import { MoreHorizontal, Menu } from "lucide-react"
-
-
-const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-]
+import { Menu } from "lucide-react"
+import { navbarContent } from "@/content/layout/navbar"
 
 export function Navbar() {
     const pathname = usePathname()
@@ -30,11 +23,11 @@ export function Navbar() {
                     <div className="mr-4 hidden md:flex">
                         <Link href="/" className="mr-6 flex items-center space-x-2">
                             <span className="hidden font-bold sm:inline-block font-display text-xl tracking-tight">
-                                David Portfolio
+                                {navbarContent.brand.full}
                             </span>
                         </Link>
                         <nav className="flex items-center gap-6 text-sm">
-                            {navItems.map((item) => (
+                            {navbarContent.navItems.map((item) => (
                                 <Link
                                     key={item.path}
                                     href={item.path}
@@ -52,7 +45,7 @@ export function Navbar() {
                     {/* Mobile Brand */}
                     <div className="flex md:hidden">
                         <Link href="/" className="flex items-center space-x-2">
-                            <span className="font-bold">David</span>
+                            <span className="font-bold">{navbarContent.brand.short}</span>
                         </Link>
                     </div>
 
@@ -66,13 +59,13 @@ export function Navbar() {
                                 className="text-muted-foreground px-2 font-mono text-xs"
                                 onClick={() => setCommandOpen(true)}
                             >
-                                <span className="mr-1">⌘</span>K
+                                {navbarContent.buttons.commandPalette}
                             </Button>
                             <Button
                                 size="sm"
                                 onClick={() => setContactOpen(true)}
                             >
-                                Let&apos;s Connect
+                                {navbarContent.buttons.connect}
                             </Button>
                         </div>
 
@@ -84,7 +77,7 @@ export function Navbar() {
                             onClick={() => setCommandOpen(true)}
                         >
                             <Menu className="h-5 w-5" />
-                            <span className="sr-only">Toggle menu</span>
+                            <span className="sr-only">{navbarContent.accessibility.toggleMenu}</span>
                         </Button>
 
                     </div>

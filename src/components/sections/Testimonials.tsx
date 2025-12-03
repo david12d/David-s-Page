@@ -7,38 +7,21 @@ import {
     CardContent,
     CardHeader,
 } from "@/components/ui/card"
-
-const testimonials = [
-    {
-        quote: "Working with David was an exceptional experience. He delivered a pixel-perfect application that exceeded our expectations.",
-        author: "Sarah Johnson",
-        role: "CEO, TechStart Inc.",
-    },
-    {
-        quote: "David's attention to detail and ability to translate complex requirements into elegant solutions is remarkable.",
-        author: "Michael Chen",
-        role: "Product Manager, InnovateCo",
-    },
-    {
-        quote: "The best developer we've worked with. Professional, reliable, and always delivers on time.",
-        author: "Emily Rodriguez",
-        role: "CTO, Digital Ventures",
-    },
-]
+import { testimonialsContent } from "@/content/sections/testimonials"
 
 export function Testimonials() {
     return (
         <section className="container mx-auto space-y-8 py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32 max-w-screen-2xl">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-                    Testimonials
+                    {testimonialsContent.heading}
                 </h2>
                 <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                    What clients and colleagues say about working with me.
+                    {testimonialsContent.description}
                 </p>
             </div>
             <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] lg:grid-cols-3">
-                {testimonials.map((testimonial, index) => (
+                {testimonialsContent.testimonials.map((testimonial, index) => (
                     <motion.div
                         key={testimonial.author}
                         initial={{ opacity: 0, y: 20 }}

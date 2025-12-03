@@ -13,52 +13,32 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-
-const projects = [
-    {
-        title: "E-Commerce Platform",
-        description:
-            "A full-featured e-commerce platform built with Next.js, Stripe, and Prisma.",
-        tags: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-        link: "#",
-    },
-    {
-        title: "Task Management App",
-        description:
-            "A real-time task management application with drag-and-drop functionality.",
-        tags: ["React", "Firebase", "Tailwind CSS"],
-        link: "#",
-    },
-    {
-        title: "AI Content Generator",
-        description:
-            "An AI-powered application that generates blog posts and social media content.",
-        tags: ["OpenAI API", "Next.js", "Vercel AI SDK"],
-        link: "#",
-    },
-]
+import { featuredProjectsContent } from "@/content/sections/featured-projects"
 
 export function FeaturedProjects() {
     return (
         <section id="projects" className="container mx-auto space-y-8 py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32 max-w-screen-2xl">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-                    Featured Projects
+                    {featuredProjectsContent.heading}
                 </h2>
                 <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                    Check out some of my recent work.
+                    {featuredProjectsContent.description}
                 </p>
             </div>
             <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] lg:grid-cols-3">
-                {projects.map((project, index) => (
+                {featuredProjectsContent.projects.map((project, index) => (
                     <motion.div
                         key={project.title}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
                         viewport={{ once: true }}
+                        className="group"
                     >
                         <Card className="h-full flex flex-col">
+
+
                             <CardHeader>
                                 <CardTitle>{project.title}</CardTitle>
                                 <CardDescription className="mt-2">
@@ -80,7 +60,7 @@ export function FeaturedProjects() {
                             <CardFooter>
                                 <Button asChild className="w-full">
                                     <Link href={project.link}>
-                                        View Project <ArrowRight className="ml-2 h-4 w-4" />
+                                        {featuredProjectsContent.buttons.viewProject} <ArrowRight className="ml-2 h-4 w-4" />
                                     </Link>
                                 </Button>
                             </CardFooter>
@@ -90,7 +70,7 @@ export function FeaturedProjects() {
             </div>
             <div className="flex justify-center">
                 <Button variant="outline" size="lg" asChild>
-                    <Link href="/projects">View All Projects</Link>
+                    <Link href="/projects">{featuredProjectsContent.buttons.viewAllProjects}</Link>
                 </Button>
             </div>
         </section>

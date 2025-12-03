@@ -1,22 +1,24 @@
 export interface BlogPost {
-    slug: string
-    title: string
-    excerpt: string
-    date: string
-    tags: string[]
-    content: string
-    readTime: string
+  slug: string
+  title: string
+  excerpt: string
+  date: string
+  tags: string[]
+  content: string
+  readTime: string
+  image: string
 }
 
 export const blogPosts: BlogPost[] = [
-    {
-        slug: "getting-started-with-nextjs",
-        title: "Getting Started with Next.js 15",
-        excerpt: "Learn how to build modern web applications with the latest version of Next.js, featuring App Router and Server Components.",
-        date: "2024-11-15",
-        tags: ["Next.js", "React", "Web Development"],
-        readTime: "5 min read",
-        content: `
+  {
+    slug: "getting-started-with-nextjs",
+    title: "Getting Started with Next.js 15",
+    excerpt: "Learn how to build modern web applications with the latest version of Next.js, featuring App Router and Server Components.",
+    date: "2024-11-15",
+    tags: ["Next.js", "React", "Web Development"],
+    readTime: "5 min read",
+    image: "/blog/nextjs-15.jpg",
+    content: `
 # Getting Started with Next.js 15
 
 Next.js 15 brings exciting new features and improvements that make building web applications even better. In this post, we'll explore the key features and how to get started.
@@ -61,15 +63,16 @@ export default function InteractiveButton() {
 
 Next.js 15 is a powerful framework that makes building modern web applications a joy. Give it a try!
         `
-    },
-    {
-        slug: "mastering-typescript",
-        title: "Mastering TypeScript for React Development",
-        excerpt: "Dive deep into TypeScript features that will level up your React development workflow and catch bugs before they happen.",
-        date: "2024-10-28",
-        tags: ["TypeScript", "React", "Best Practices"],
-        readTime: "8 min read",
-        content: `
+  },
+  {
+    slug: "mastering-typescript",
+    title: "Mastering TypeScript for React Development",
+    excerpt: "Dive deep into TypeScript features that will level up your React development workflow and catch bugs before they happen.",
+    date: "2024-10-28",
+    tags: ["TypeScript", "React", "Best Practices"],
+    readTime: "8 min read",
+    image: "/blog/typescript-react.jpg",
+    content: `
 # Mastering TypeScript for React Development
 
 TypeScript has become an essential tool for modern React development. Let's explore how to leverage its power effectively.
@@ -136,15 +139,16 @@ function List<T>({ items, renderItem }: ListProps<T>) {
 
 TypeScript transforms how we build React applications, providing safety and better developer experience.
         `
-    },
-    {
-        slug: "building-accessible-web-apps",
-        title: "Building Accessible Web Applications",
-        excerpt: "Learn essential accessibility principles and practical techniques to make your web applications usable by everyone.",
-        date: "2024-10-10",
-        tags: ["Accessibility", "Web Development", "Best Practices"],
-        readTime: "6 min read",
-        content: `
+  },
+  {
+    slug: "building-accessible-web-apps",
+    title: "Building Accessible Web Applications",
+    excerpt: "Learn essential accessibility principles and practical techniques to make your web applications usable by everyone.",
+    date: "2024-10-10",
+    tags: ["Accessibility", "Web Development", "Best Practices"],
+    readTime: "6 min read",
+    image: "/blog/accessibility.jpg",
+    content: `
 # Building Accessible Web Applications
 
 Web accessibility ensures everyone can use your applications, regardless of their abilities. Let's explore key principles and techniques.
@@ -213,5 +217,5 @@ Use these tools:
 
 Building accessible applications is not just a nice-to-have—it's essential for creating inclusive digital experiences.
         `
-    }
+  }
 ]

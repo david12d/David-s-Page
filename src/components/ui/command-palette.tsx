@@ -3,20 +3,9 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { Command } from "cmdk"
-import {
-    Home,
-    FolderKanban,
-    FileText,
-    User,
-    Calendar,
-    FileDown,
-    Github,
-    Linkedin,
-    Mail,
-    Search,
-    X
-} from "lucide-react"
+import { Search, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { commandPaletteContent } from "@/content/ui/command-palette"
 
 interface CommandPaletteProps {
     open: boolean
@@ -56,7 +45,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                     <div className="flex items-center border-b px-3">
                         <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
                         <Command.Input
-                            placeholder="Type a command or search..."
+                            placeholder={commandPaletteContent.searchPlaceholder}
                             value={search}
                             onValueChange={setSearch}
                             className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
@@ -66,81 +55,57 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                             className="ml-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
                         >
                             <X className="h-4 w-4" />
-                            <span className="sr-only">Close</span>
+                            <span className="sr-only">{commandPaletteContent.accessibility.close}</span>
                         </button>
                     </div>
                     <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden p-2">
                         <Command.Empty className="py-6 text-center text-sm text-muted-foreground">
-                            No results found.
+                            {commandPaletteContent.emptyStateMessage}
                         </Command.Empty>
-                        <Command.Group heading="Navigation">
-                            <Command.Item
-                                onSelect={() => handleSelect(() => router.push("/"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <Home className="mr-2 h-4 w-4" />
-                                <span>Home</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => router.push("/projects"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <FolderKanban className="mr-2 h-4 w-4" />
-                                <span>Projects</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => router.push("/blog"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <FileText className="mr-2 h-4 w-4" />
-                                <span>Blog</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => router.push("/about"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <User className="mr-2 h-4 w-4" />
-                                <span>About</span>
-                            </Command.Item>
+                        <Command.Group heading={commandPaletteContent.groups.navigation.heading}>
+                            {commandPaletteContent.groups.navigation.items.map((item) => {
+                                const Icon = item.icon
+                                return (
+                                    <Command.Item
+                                        key={item.path}
+                                        onSelect={() => handleSelect(() => router.push(item.path))}
+                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                    >
+                                        <Icon className="mr-2 h-4 w-4" />
+                                        <span>{item.label}</span>
+                                    </Command.Item>
+                                )
+                            })}
                         </Command.Group>
-                        <Command.Group heading="Actions">
-                            <Command.Item
-                                onSelect={() => handleSelect(() => window.open("https://calendly.com/yourusername", "_blank"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <Calendar className="mr-2 h-4 w-4" />
-                                <span>Book a Call</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => window.open("/resume.pdf", "_blank"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <FileDown className="mr-2 h-4 w-4" />
-                                <span>Resume</span>
-                            </Command.Item>
+                        <Command.Group heading={commandPaletteContent.groups.actions.heading}>
+                            {commandPaletteContent.groups.actions.items.map((item) => {
+                                const Icon = item.icon
+                                return (
+                                    <Command.Item
+                                        key={item.url}
+                                        onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                    >
+                                        <Icon className="mr-2 h-4 w-4" />
+                                        <span>{item.label}</span>
+                                    </Command.Item>
+                                )
+                            })}
                         </Command.Group>
-                        <Command.Group heading="Social">
-                            <Command.Item
-                                onSelect={() => handleSelect(() => window.open("https://github.com/yourusername", "_blank"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <Github className="mr-2 h-4 w-4" />
-                                <span>GitHub</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => window.open("https://linkedin.com/in/yourusername", "_blank"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <Linkedin className="mr-2 h-4 w-4" />
-                                <span>LinkedIn</span>
-                            </Command.Item>
-                            <Command.Item
-                                onSelect={() => handleSelect(() => window.open("mailto:your@email.com", "_blank"))}
-                                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                            >
-                                <Mail className="mr-2 h-4 w-4" />
-                                <span>Email</span>
-                            </Command.Item>
+                        <Command.Group heading={commandPaletteContent.groups.social.heading}>
+                            {commandPaletteContent.groups.social.items.map((item) => {
+                                const Icon = item.icon
+                                return (
+                                    <Command.Item
+                                        key={item.url}
+                                        onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                    >
+                                        <Icon className="mr-2 h-4 w-4" />
+                                        <span>{item.label}</span>
+                                    </Command.Item>
+                                )
+                            })}
                         </Command.Group>
                     </Command.List>
                 </Command>
