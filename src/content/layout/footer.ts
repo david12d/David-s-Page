@@ -1,5 +1,5 @@
 export const footerContent = {
-    tagline: "I'm David - a full-stack developer, freelancer & problem solver. Thanks for checking out my site!",
+    tagline: "I'm David - a Technology & Business Advisor specializing in cloud, AI, and FinOps. Thanks for checking out my site!",
     navigationSections: {
         general: {
             heading: "General",

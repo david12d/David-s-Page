@@ -18,8 +18,8 @@ export const heroContent = {
     links: {
         projects: "#projects",
         contact: "#contact",
-        email: "your@email.com", // TODO: Add your email
-        linkedin: "https://linkedin.com/in/your-profile", // TODO: Add your LinkedIn URL
-        calendly: "https://calendly.com/your-link" // TODO: Add your Calendly URL
+        email: "david12ding@gmail.com",
+        linkedin: "https://www.linkedin.com/in/david-ding-481bbb112/",
+        calendly: "https://calendly.com/david12ding-yrfg/30min"
     }
 }
