@@ -8,6 +8,7 @@ export const navbarContent = {
         { name: "About", path: "/about" },
         { name: "Work", path: "/projects" },
         { name: "Blog", path: "/blog" },
+        { name: "Uses", path: "/uses" },
     ],
     buttons: {
         commandPalette: "⌘K",
