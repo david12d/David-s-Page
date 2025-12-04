@@ -45,7 +45,7 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className="mb-8 text-center md:text-left"
                 >
-                    {aboutPageContent.whatIDoSection.heading}
+                    {aboutPageContent.servicesSection.heading}
                 </motion.h2>
                 <motion.div
                     variants={container}
@@ -54,19 +54,19 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
                 >
-                    {aboutPageContent.whatIDoSection.skills.map((skill) => {
-                        const Icon = skill.icon
+                    {aboutPageContent.servicesSection.services.map((service) => {
+                        const Icon = service.icon
                         return (
                             <motion.div
-                                key={skill.title}
+                                key={service.title}
                                 variants={item}
                                 whileHover={{ scale: 1.03, y: -4 }}
                                 className="rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50"
                             >
                                 <Icon className="h-10 w-10 mb-4 text-primary" />
-                                <h3 className="mb-2 text-xl">{skill.title}</h3>
+                                <h3 className="mb-2 text-xl">{service.title}</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {skill.description}
+                                    {service.description}
                                 </p>
                             </motion.div>
                         )

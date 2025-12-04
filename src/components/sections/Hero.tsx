@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { heroContent } from "@/content/sections/hero"
 
@@ -39,8 +39,8 @@ export function Hero() {
                     </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                    <a href={heroContent.links.resume} target="_blank">
-                        {heroContent.buttons.downloadCV} <Download className="ml-2 h-4 w-4" />
+                    <a href={heroContent.links.contact}>
+                        {heroContent.buttons.getInTouch} <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                 </Button>
             </motion.div>

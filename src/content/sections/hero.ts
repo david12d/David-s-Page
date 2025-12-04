@@ -1,16 +1,24 @@
 export const heroContent = {
     heading: {
-        line1: "Building Digital",
-        line2: "Experiences",
-        highlight: "That Matter"
+        line1: "Technology &",
+        line2: "Business",
+        highlight: "Advisor"
     },
-    description: "I'm David, a Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+    description: "Outcome-focused executive advisor who can articulate technology transformation to executives whilst engaging at detail with finance and technical teams.",
+    specializations: [
+        "Technology Strategy",
+        "Cloud Architecture",
+        "AI & Automation",
+        "FinOps"
+    ],
     buttons: {
         viewProjects: "View Projects",
-        downloadCV: "Download CV"
+        getInTouch: "Get in Touch"
     },
     links: {
         projects: "#projects",
-        resume: "/resume.pdf"
+        contact: "#contact",
+        linkedin: "https://linkedin.com/in/your-profile", // TODO: Add your LinkedIn URL
+        calendly: "https://calendly.com/your-link" // TODO: Add your Calendly URL
     }
 }

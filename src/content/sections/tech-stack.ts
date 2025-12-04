@@ -1,27 +1,31 @@
 import {
-    Code2,
-    Database,
     Cloud,
+    Database,
+    Brain,
+    DollarSign,
+    Code2,
     GitBranch,
-    Palette,
-    Server,
-    Container,
     type LucideIcon
 } from "lucide-react"
 
 export const techStackContent = {
     heading: "Tech Stack",
-    description: "The technologies I use to build modern applications.",
+    description: "The technologies and platforms I work with to deliver enterprise solutions.",
     technologies: [
-        { name: "Next.js", icon: Code2 },
-        { name: "React", icon: Code2 },
-        { name: "TypeScript", icon: Code2 },
-        { name: "Tailwind CSS", icon: Palette },
-        { name: "Node.js", icon: Server },
-        { name: "PostgreSQL", icon: Database },
-        { name: "Prisma", icon: Database },
-        { name: "Docker", icon: Container },
-        { name: "AWS", icon: Cloud },
-        { name: "Git", icon: GitBranch },
-    ] as Array<{ name: string; icon: LucideIcon }>
+        { name: "AWS", icon: Cloud, category: "Cloud" },
+        { name: "Azure", icon: Cloud, category: "Cloud" },
+        { name: "GCP", icon: Cloud, category: "Cloud" },
+        { name: "OpenAI", icon: Brain, category: "AI" },
+        { name: "Gemini", icon: Brain, category: "AI" },
+        { name: "Salesforce", icon: Database, category: "CRM/ERP" },
+        { name: "Dynamics 365", icon: Database, category: "CRM/ERP" },
+        { name: "PostgreSQL", icon: Database, category: "Data" },
+        { name: "Snowflake", icon: Database, category: "Data" },
+        { name: "Python", icon: Code2, category: "Development" },
+        { name: "TypeScript", icon: Code2, category: "Development" },
+        { name: "React", icon: Code2, category: "Development" },
+        { name: "GitHub", icon: GitBranch, category: "DevOps" },
+        { name: "Vercel", icon: Cloud, category: "Cloud" },
+        { name: "PowerBI", icon: Database, category: "Analytics" },
+    ] as Array<{ name: string; icon: LucideIcon; category: string }>
 }
