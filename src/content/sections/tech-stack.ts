@@ -9,7 +9,10 @@ import {
 } from "lucide-react"
 
 export const techStackContent = {
-    heading: "Tech Stack",
+    heading: {
+        prefix: "Tech",
+        highlight: "Stack"
+    },
     description: "The technologies and platforms I work with to deliver enterprise solutions.",
     technologies: [
         { name: "AWS", icon: Cloud, category: "Cloud" },

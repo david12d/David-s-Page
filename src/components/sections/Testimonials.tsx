@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Quote } from "lucide-react"
+import { GradientText } from "@/components/ui/gradient-text"
 import {
     Card,
     CardContent,
@@ -14,7 +15,8 @@ export function Testimonials() {
         <section className="container mx-auto space-y-8 py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32 max-w-screen-2xl">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-                    {testimonialsContent.heading}
+                    {testimonialsContent.heading.prefix && `${testimonialsContent.heading.prefix} `}
+                    <GradientText>{testimonialsContent.heading.highlight}</GradientText>
                 </h2>
                 <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
                     {testimonialsContent.description}

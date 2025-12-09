@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Calendar, Clock } from "lucide-react"
 import { blogPosts } from "@/lib/blog-data"
 import { Button } from "@/components/ui/button"
+import { GradientText } from "@/components/ui/gradient-text"
 import { blogPageContent } from "@/content/pages/blog"
 
 const container = {
@@ -31,7 +32,10 @@ export default function BlogPage() {
                 transition={{ duration: 0.5 }}
                 className="mb-12 md:mb-16"
             >
-                <h1 className="mb-4">{blogPageContent.heading}</h1>
+                <h1 className="mb-4">
+                    {blogPageContent.heading.prefix && `${blogPageContent.heading.prefix} `}
+                    <GradientText>{blogPageContent.heading.highlight}</GradientText>
+                </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
                     {blogPageContent.description}
                 </p>

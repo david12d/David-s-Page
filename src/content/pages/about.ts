@@ -1,7 +1,10 @@
 import { Cloud, Brain, DollarSign, Users, BarChart3, Briefcase, type LucideIcon } from "lucide-react"
 
 export const aboutPageContent = {
-    pageHeading: "About Me",
+    pageHeading: {
+        prefix: "About",
+        highlight: "Me"
+    },
     introParagraphs: [
         "My journey into the world of technology and business began with a curiosity about how systems work and a desire to make a meaningful impact. Growing up, I was always fascinated by the intersection of technology and business, which led me to pursue a Bachelor of Commerce & IT and later a Masters in Business Administration.",
         "I currently serve as a Senior Consultant at Slalom, where I focus on Technology Strategy, Cloud Transformation, and FinOps. My experience spans Cloud Architecture (AWS, Azure), Data Analytics, BI & AI (PowerBI, Snowflake, Salesforce), and IT Operating Models (ITSM).",

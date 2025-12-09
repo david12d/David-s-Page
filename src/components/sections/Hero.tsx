@@ -1,11 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { GradientText } from "@/components/ui/gradient-text"
+import { ContactDrawer } from "@/components/ui/contact-drawer"
 import { heroContent } from "@/content/sections/hero"
 
 export function Hero() {
+    const [contactDrawerOpen, setContactDrawerOpen] = useState(false)
+
     return (
         <section className="container mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-screen-2xl flex-col items-center justify-center space-y-8 py-24 px-6 md:px-12 lg:px-24 text-center md:py-32">
             <div className="space-y-4">
@@ -16,7 +21,8 @@ export function Hero() {
                     className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
                 >
                     {heroContent.heading.line1} <br className="hidden sm:inline" />
-                    <span className="text-primary">{heroContent.heading.line2}</span> {heroContent.heading.highlight}
+                    <span className="text-primary">{heroContent.heading.line2}</span>{" "}
+                    <GradientText>{heroContent.heading.highlight}</GradientText>
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -38,10 +44,8 @@ export function Hero() {
                         {heroContent.buttons.viewProjects} <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
-                    <a href={heroContent.links.contact}>
-                        {heroContent.buttons.getInTouch} <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                <Button variant="outline" size="lg" onClick={() => setContactDrawerOpen(true)}>
+                    {heroContent.buttons.getInTouch} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
             </motion.div>
 
@@ -129,6 +133,8 @@ export function Hero() {
                     )}
                 </div>
             </motion.div>
+
+            <ContactDrawer open={contactDrawerOpen} onOpenChange={setContactDrawerOpen} />
         </section>
     )
 }

@@ -1,5 +1,8 @@
 export const testimonialsContent = {
-    heading: "Testimonials",
+    heading: {
+        prefix: "",
+        highlight: "Testimonials"
+    },
     description: "What clients and partners say about working with me.",
     testimonials: [
         {

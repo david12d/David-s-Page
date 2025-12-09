@@ -1,5 +1,8 @@
 export const blogPageContent = {
-    heading: "Blog",
+    heading: {
+        prefix: "",
+        highlight: "Blog"
+    },
     description: "Insights on technology platforms, cloud architecture, AI, and lessons learned from enterprise consulting. Published monthly.",
 
     categories: [

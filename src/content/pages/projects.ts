@@ -1,5 +1,8 @@
 export const projectsPageContent = {
-    heading: "Projects",
+    heading: {
+        prefix: "",
+        highlight: "Projects"
+    },
     description: "A portfolio of technology advisory, cloud transformation, and innovation projects across various industries.",
 
     categories: [

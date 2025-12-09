@@ -1,5 +1,8 @@
 export const featuredProjectsContent = {
-    heading: "Featured Projects",
+    heading: {
+        prefix: "Featured",
+        highlight: "Projects"
+    },
     description: "Selected engagements showcasing technology strategy, cloud transformation, and business advisory.",
     projects: [
         {

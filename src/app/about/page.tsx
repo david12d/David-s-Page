@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { GradientText } from "@/components/ui/gradient-text"
 import { aboutPageContent } from "@/content/pages/about"
 
 const container = {
@@ -28,7 +29,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.5 }}
                 className="mb-16 md:mb-24"
             >
-                <h1 className="mb-6">{aboutPageContent.pageHeading}</h1>
+                <h1 className="mb-6">
+                    {aboutPageContent.pageHeading.prefix}{" "}
+                    <GradientText>{aboutPageContent.pageHeading.highlight}</GradientText>
+                </h1>
                 <div className="space-y-4 text-lg text-muted-foreground max-w-3xl">
                     {aboutPageContent.introParagraphs.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>

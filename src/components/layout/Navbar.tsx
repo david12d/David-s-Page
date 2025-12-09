@@ -17,72 +17,76 @@ export function Navbar() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/0 backdrop-blur-md supports-[backdrop-filter]:bg-background/0">
-                <div className="container flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-8">
-                    {/* Desktop Navigation */}
-                    <div className="mr-4 hidden md:flex">
-                        <Link href="/" className="mr-6 flex items-center space-x-2">
-                            <span className="hidden font-bold sm:inline-block font-display text-xl tracking-tight">
+            {/* Fixed navbar container */}
+            <div className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="flex items-center justify-between gap-4">
+                        {/* Logo/Brand - Left Side, Outside Container */}
+                        <Link href="/" className="flex-shrink-0">
+                            <span className="font-bold font-display text-lg tracking-tight hidden md:inline-block">
                                 {navbarContent.brand.full}
                             </span>
+                            <span className="font-bold font-display text-lg tracking-tight md:hidden">
+                                {navbarContent.brand.short}
+                            </span>
                         </Link>
-                        <nav className="flex items-center gap-6 text-sm">
-                            {navbarContent.navItems.map((item) => (
-                                <Link
-                                    key={item.path}
-                                    href={item.path}
-                                    className={cn(
-                                        "transition-colors hover:text-foreground/80 font-sans",
-                                        pathname === item.path ? "text-foreground" : "text-foreground/60"
-                                    )}
+
+                        {/* Center - Glassmorphism Navigation Container */}
+                        <nav className="hidden md:flex flex-1 justify-center">
+                            <div className="flex items-center gap-1 rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-xl px-3 py-2 shadow-lg">
+                                {navbarContent.navItems.map((item) => (
+                                    <Link
+                                        key={item.path}
+                                        href={item.path}
+                                        className={cn(
+                                            "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
+                                            pathname === item.path
+                                                ? "bg-white/10 text-foreground"
+                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-white/5"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+                                <Button
+                                    size="sm"
+                                    className="ml-2 h-8 rounded-full"
+                                    onClick={() => setContactOpen(true)}
                                 >
-                                    {item.name}
-                                </Link>
-                            ))}
+                                    {navbarContent.buttons.connect}
+                                </Button>
+                            </div>
                         </nav>
-                    </div>
 
-                    {/* Mobile Brand */}
-                    <div className="flex md:hidden">
-                        <Link href="/" className="flex items-center space-x-2">
-                            <span className="font-bold">{navbarContent.brand.short}</span>
-                        </Link>
-                    </div>
-
-                    {/* Right Side Actions */}
-                    <div className="flex items-center gap-2">
-                        {/* Desktop Actions */}
-                        <div className="hidden md:flex items-center gap-2">
+                        {/* Right Side - Command K Button, Outside Container */}
+                        <div className="flex items-center gap-2 flex-shrink-0">
                             <Button
                                 variant="outline"
-                                size="sm"
-                                className="text-muted-foreground px-2 font-mono text-xs"
+                                size="icon"
+                                className="hidden md:flex h-10 w-10 rounded-full border-white/10 bg-zinc-900/50 backdrop-blur-xl text-muted-foreground hover:bg-white/5"
                                 onClick={() => setCommandOpen(true)}
                             >
-                                {navbarContent.buttons.commandPalette}
+                                <span className="font-mono text-xs">⌘K</span>
+                                <span className="sr-only">{navbarContent.buttons.commandPalette}</span>
                             </Button>
+
+                            {/* Mobile Menu Button */}
                             <Button
-                                size="sm"
-                                onClick={() => setContactOpen(true)}
+                                variant="ghost"
+                                size="icon"
+                                className="md:hidden h-10 w-10"
+                                onClick={() => setCommandOpen(true)}
                             >
-                                {navbarContent.buttons.connect}
+                                <Menu className="h-5 w-5" />
+                                <span className="sr-only">{navbarContent.accessibility.toggleMenu}</span>
                             </Button>
                         </div>
-
-                        {/* Mobile Menu Button */}
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="md:hidden"
-                            onClick={() => setCommandOpen(true)}
-                        >
-                            <Menu className="h-5 w-5" />
-                            <span className="sr-only">{navbarContent.accessibility.toggleMenu}</span>
-                        </Button>
-
                     </div>
                 </div>
-            </header>
+            </div>
+
+            {/* Spacer to prevent content from going under fixed navbar */}
+            <div className="h-20" />
 
             {/* Command Palette */}
             <CommandPalette open={commandOpen} onOpenChange={setCommandOpen} />
