@@ -102,7 +102,19 @@ read -p "Enter PR description (press Enter for default): " pr_description
 if [ -z "$pr_description" ]; then
     # Generate commit summary
     pr_description="## Summary\n\nThis PR addresses the changes for: $pr_title\n\n## Changes\n\n"
-    pr_description+="$(git log --oneline origin/main..HEAD | sed 's/^/- /')\n\n"
+
+    # Ensure origin/main exists and is reasonably up to date before comparing
+    if git rev-parse --verify origin/main >/dev/null 2>&1; then
+        if ! git fetch origin main >/dev/null 2>&1; then
+            print_warning "Could not fetch origin/main; commit summary may be outdated."
+        fi
+        commit_summary=$(git log --oneline origin/main..HEAD | sed 's/^/- /')
+    else
+        print_warning "origin/main not found; using local commit history for summary."
+        commit_summary=$(git log --oneline HEAD | sed 's/^/- /')
+    fi
+
+    pr_description+="$commit_summary\n\n"
     
     if [ -n "$issue_number" ]; then
         pr_description+="Closes #$issue_number"
