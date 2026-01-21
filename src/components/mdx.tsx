@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
-import { getMDXComponent } from "next-contentlayer2/hooks";
+import { useMDXComponent } from "next-contentlayer2/hooks";
 
 const components = {
     // Custom MDX components can be added here
@@ -50,9 +49,9 @@ interface MdxProps {
     code: string;
 }
 
+/* eslint-disable react-hooks/static-components */
 export function Mdx({ code }: MdxProps) {
-    // eslint-disable-next-line react-hooks/static-components
-    const Component = useMemo(() => getMDXComponent(code), [code]);
+    const Component = useMDXComponent(code);
 
     return (
         <div className="prose prose-neutral dark:prose-invert max-w-none">
@@ -60,3 +59,4 @@ export function Mdx({ code }: MdxProps) {
         </div>
     )
 }
+/* eslint-enable react-hooks/static-components */
