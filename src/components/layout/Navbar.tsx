@@ -34,7 +34,7 @@ export function Navbar() {
 
                         {/* Center - Glassmorphism Navigation Container */}
                         <nav className="hidden md:flex flex-1 justify-center">
-                            <div className="flex items-center gap-1 rounded-full border border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl px-3 py-2 shadow-lg dark:border-white/10 dark:bg-zinc-900/50">
+                            <div className="flex items-center gap-1 rounded-full border border-[#d4c9b5] bg-[#f5f1e8]/50 backdrop-blur-xl px-3 py-2 shadow-lg dark:border-white/10 dark:bg-zinc-900/50">
                                 {navbarContent.navItems.map((item) => (
                                     <Link
                                         key={item.path}
@@ -70,7 +70,7 @@ export function Navbar() {
                             <Button
                                 variant="outline"
                                 size="icon"
-                                className="hidden md:flex h-10 w-10 rounded-full border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
+                                className="hidden md:flex h-10 w-10 rounded-full border-[#d4c9b5] bg-[#f5f1e8]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
                                 onClick={() => setCommandOpen(true)}
                             >
                                 <span className="font-mono text-xs">⌘K</span>

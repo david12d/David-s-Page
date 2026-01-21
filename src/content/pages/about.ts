@@ -12,36 +12,52 @@ export const aboutPageContent = {
     ],
 
     servicesSection: {
-        heading: "Services Offered",
+        heading: "Expertise",
+        subHeading: "Services Offered",
         services: [
             {
-                title: "Technology Strategy",
-                description: "Strategic technology planning and roadmap development aligned with business objectives",
+                title: "Startup Advisory",
+                description: "Guidance for early-stage companies on technology, product, and growth strategies.",
                 icon: Briefcase,
             },
             {
-                title: "Cloud Transformation",
-                description: "Cloud architecture, migration strategy, and platform optimization across AWS, Azure, and GCP",
-                icon: Cloud,
+                title: "Product Advisory",
+                description: "Product strategy, roadmap development, and go-to-market planning.",
+                icon: Users,
             },
             {
-                title: "FinOps",
-                description: "Financial operating models, cost optimization, and cloud financial management",
-                icon: DollarSign,
-            },
-            {
-                title: "AI & Automation",
-                description: "AI use case discovery, strategy development, and automation implementation",
-                icon: Brain,
+                title: "Technology Strategy",
+                description: "Strategic technology planning and roadmap development aligned with business objectives.",
+                icon: Briefcase,
             },
             {
                 title: "Business Analysis",
-                description: "Requirements gathering, process optimization, and stakeholder management",
+                description: "Requirements gathering, process optimization, and stakeholder management.",
                 icon: BarChart3,
             },
             {
-                title: "Product Advisory",
-                description: "Product strategy, roadmap development, and go-to-market planning",
+                title: "FinOps & Cost Optimisation",
+                description: "Financial operating models, cost optimization, and cloud financial management.",
+                icon: DollarSign,
+            },
+            {
+                title: "Cloud Technologies",
+                description: "Cloud architecture, migration strategy, and platform optimization.",
+                icon: Cloud,
+            },
+            {
+                title: "AI & Automation",
+                description: "AI Use Case Discovery, AI Adoption, AI Strategy Development, AI Automation, AI enabled DevOps/Software Engineering.",
+                icon: Brain,
+            },
+            {
+                title: "Data Analytics",
+                description: "Data strategy and implementation using PowerBI, Python, SQL, and R.",
+                icon: BarChart3,
+            },
+            {
+                title: "Agile Methodologies",
+                description: "Agile delivery and transformation using Jira and Confluence.",
                 icon: Users,
             },
         ] as Array<{ title: string; description: string; icon: LucideIcon }>
@@ -54,36 +70,74 @@ export const aboutPageContent = {
             "Healthcare",
             "Education",
             "Technology",
-            "Financial Services"
+            "Financial Services",
+            "Non-for profit industry",
+            "Communications industry"
         ]
     },
 
     technologiesSection: {
-        heading: "Technologies & Tools",
+        heading: "Technologies & Certifications",
+        subHeadingTechnologies: "Technologies",
+        subHeadingCertifications: "Certifications",
         categories: [
             {
-                name: "Cloud Platforms",
-                items: ["AWS", "Azure", "Google Cloud Platform", "Dynamics 365"]
+                name: "Cloud",
+                items: [
+                    { name: "AWS", logo: "/logos/aws.svg" },
+                    { name: "Azure", logo: "/logos/azure.svg" },
+                    { name: "Dynamics 365", logo: "/logos/dynamics365.svg" }
+                ]
             },
             {
-                name: "Data & Analytics",
-                items: ["PowerBI", "Snowflake", "Python", "R", "SQL"]
+                name: "Data",
+                items: [
+                    { name: "PowerBI", logo: "/logos/powerbi.svg" },
+                    { name: "Snowflake", logo: "/logos/snowflake.svg" },
+                    { name: "Python", logo: "/logos/python.svg" },
+                    { name: "R", logo: "" }, // Missing logo
+                    { name: "SQL", logo: "" } // Missing logo
+                ]
             },
             {
-                name: "Integration & DevOps",
-                items: ["Mulesoft", "AWS API Gateway", "Model Context Protocol", "GitHub Actions", "GitLab"]
+                name: "Integration",
+                items: [
+                    { name: "Mulesoft", logo: "" }, // Missing logo
+                    { name: "AWS API Gateway", logo: "/logos/aws.svg" },
+                    { name: "Model Context Protocol", logo: "" } // Missing logo
+                ]
             },
             {
-                name: "Agile & Project Management",
-                items: ["Jira", "Confluence", "Linear"]
+                name: "CI/CD",
+                items: [
+                    { name: "Github Actions", logo: "/logos/github.svg" },
+                    { name: "Gitlab", logo: "" } // Missing logo
+                ]
             },
             {
-                name: "CRM & ERP",
-                items: ["Salesforce", "Microsoft Dynamics"]
+                name: "Agile",
+                items: [
+                    { name: "Jira", logo: "" }, // Missing logo
+                    { name: "Confluence", logo: "" }, // Missing logo
+                    { name: "Linear", logo: "/logos/linear.svg" }
+                ]
             },
             {
-                name: "AI & Automation",
-                items: ["Voice Agents", "Cursor", "GitHub Copilot", "Amazon Bedrock", "n8n", "Relevance AI"]
+                name: "CRM",
+                items: [
+                    { name: "Salesforce", logo: "/logos/salesforce.svg" },
+                    { name: "Microsoft Dynamics", logo: "/logos/dynamics365.svg" }
+                ]
+            },
+            {
+                name: "AI",
+                items: [
+                    { name: "Cursor", logo: "" }, // Missing logo
+                    { name: "Github Copilot", logo: "/logos/github.svg" },
+                    { name: "Amazon Bedrock", logo: "/logos/aws.svg" },
+                    { name: "n8n", logo: "" }, // Missing logo
+                    { name: "Relevance AI", logo: "" } // Missing logo
+                ]
             }
         ]
     },
@@ -92,9 +146,19 @@ export const aboutPageContent = {
         heading: "Certifications",
         certifications: [
             {
+                name: "Salesforce AI Associate",
+                year: "2024",
+                issuer: "Salesforce"
+            },
+            {
                 name: "AWS Certified Solutions Architect – Professional",
                 year: "2024",
                 issuer: "Amazon Web Services"
+            },
+            {
+                name: "FinOps Certified Practitioner",
+                year: "2023",
+                issuer: "FinOps Foundation"
             },
             {
                 name: "Salesforce AI Associate",
@@ -102,9 +166,9 @@ export const aboutPageContent = {
                 issuer: "Salesforce"
             },
             {
-                name: "FinOps Certified Practitioner",
+                name: "Generative AI Fundamentals",
                 year: "2023",
-                issuer: "FinOps Foundation"
+                issuer: "Google Cloud"
             },
             {
                 name: "AWS Certified SysOps Administrator – Associate",
@@ -115,11 +179,6 @@ export const aboutPageContent = {
                 name: "Azure AI Fundamentals",
                 year: "2023",
                 issuer: "Microsoft"
-            },
-            {
-                name: "Generative AI Fundamentals",
-                year: "2023",
-                issuer: "Google Cloud"
             },
             {
                 name: "AWS Certified Solutions Architect – Associate",
@@ -148,26 +207,42 @@ export const aboutPageContent = {
         heading: "Experience",
         timeline: [
             {
-                title: "Senior Consultant",
-                company: "Slalom",
-                period: "Present",
-                description: "Technology Strategy, Cloud Transformation, and FinOps consulting across government, healthcare, education, and financial services sectors.",
+                title: "Co-Founder & Chief Technology Officer",
+                company: "Dremedy Medical",
+                period: "2023 - Present",
+                description: "Leading biomedical device startup developing innovative at-home immune system monitoring solutions for chemotherapy patients. Spearheading technology strategy, product development, and business growth.",
                 highlights: [
-                    "Cloud Architecture (AWS, Azure, GCP)",
-                    "Data Analytics, BI & AI (PowerBI, Snowflake, Salesforce)",
-                    "IT Operating Models (ITSM)",
-                    "Executive advisory and stakeholder management"
+                    "Won Endeavour Research & Commercialisation Award for innovation in medical technology",
+                    "Full-stack solution architecture on Google Cloud Platform (GCP)",
+                    "AI & machine learning integration for predictive health analytics",
+                    "Business strategy development across go-to-market, intellectual property, and strategic partnerships",
+                    "Cross-functional leadership spanning engineering, clinical research, and regulatory compliance"
                 ]
             },
             {
-                title: "Co-Founder",
-                company: "AI Medtech Startup",
-                period: "Recent",
-                description: "Led biomedical device startup developing at-home immune system monitoring for chemotherapy patients. Won Endeavour Research & Commercialisation Award.",
+                title: "Senior Consultant",
+                company: "Slalom",
+                period: "2021 - Present",
+                description: "Delivering technology strategy, cloud transformation, and FinOps consulting across diverse sectors including government, healthcare, education, and financial services. Contributing to Southeast Asia expansion and Defense ICTPA panel initiatives.",
                 highlights: [
-                    "Technology & AI strategy development",
-                    "Full-stack solution architecture on GCP",
-                    "Business strategy across GTM, IP, and partnerships"
+                    "Cloud Architecture design and implementation (AWS, Azure, GCP)",
+                    "Data Analytics, Business Intelligence & AI solutions (PowerBI, Snowflake, Salesforce)",
+                    "IT Service Management (ITSM) and operating model transformation",
+                    "FinOps practice leadership and cloud cost optimization strategies",
+                    "Executive advisory and C-level stakeholder engagement",
+                    "Led successful delivery of government and defense sector projects"
+                ]
+            },
+            {
+                title: "Technology Consultant",
+                company: "Accenture",
+                period: "2020 - 2021",
+                description: "Worked on digital transformation initiatives and internal knowledge management systems using human-centered design principles. Gained experience in enterprise technology consulting and agile delivery methodologies.",
+                highlights: [
+                    "Internal knowledge management platform development",
+                    "Human-centered design application for enterprise solutions",
+                    "Agile project delivery and stakeholder collaboration",
+                    "Cross-functional team coordination and project management"
                 ]
             }
         ]

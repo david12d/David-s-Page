@@ -11,24 +11,24 @@ import {
 
 const stats = [
     {
-        value: "50+",
+        value: "20+",
         label: "Projects Completed",
         icon: Code2
     },
     {
-        value: "30+",
+        value: "20+",
         label: "Happy Clients",
         icon: Users
     },
     {
-        value: "1000+",
-        label: "Cups of Coffee",
-        icon: Coffee
-    },
-    {
-        value: "5+",
+        value: "7+",
         label: "Years Experience",
         icon: Award
+    },
+    {
+        value: "100+",
+        label: "Incredible Conversations",
+        icon: Coffee
     },
 ]
 
