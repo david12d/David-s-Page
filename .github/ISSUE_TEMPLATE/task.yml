@@ -1,0 +1,69 @@
+name: Task / Chore
+description: General development task or maintenance work
+title: "[Task]: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Create a development task or chore
+        
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: What needs to be done?
+      placeholder: Describe the task
+    validations:
+      required: true
+      
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope of Work
+      description: What components/files will be affected?
+      placeholder: |
+        - Component A
+        - File B
+        - Directory C
+    validations:
+      required: false
+      
+  - type: textarea
+    id: subtasks
+    attributes:
+      label: Sub-tasks
+      description: Break down the work into smaller chunks
+      placeholder: |
+        - [ ] Subtask 1
+        - [ ] Subtask 2
+        - [ ] Subtask 3
+    validations:
+      required: false
+      
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification Steps
+      description: How will we verify this task is complete?
+      placeholder: |
+        - Build passes
+        - Tests pass
+        - Manual verification steps
+    validations:
+      required: false
+      
+  - type: dropdown
+    id: type
+    attributes:
+      label: Task Type
+      description: What kind of task is this?
+      options:
+        - Development
+        - Refactoring
+        - Documentation
+        - Testing
+        - Configuration
+        - Deployment
+    validations:
+      required: true

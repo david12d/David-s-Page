@@ -220,6 +220,23 @@ See [BACKLOG.md](./BACKLOG.md) for detailed progress tracking and [GAP_ANALYSIS.
 - Performance optimization
 - Accessibility audit
 
+## 🔄 Development Workflow
+
+This project uses a declarative GitHub-based workflow with issues, feature branches, and pull requests. See [WORKFLOW.md](./WORKFLOW.md) for complete documentation.
+
+**Quick Start:**
+```bash
+# Start a new task
+.agent/scripts/start-task.sh
+
+# Finish and create PR
+.agent/scripts/finish-task.sh
+```
+
+For full workflow details, see:
+- [Development Workflow Guide](./WORKFLOW.md)
+- [GitHub Workflow Documentation](./.agent/workflows/github-workflow.md)
+
 ## 🤝 Contributing
 
 This is a personal portfolio project, but suggestions and feedback are welcome! Feel free to open an issue or submit a pull request.
