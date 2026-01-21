@@ -3,29 +3,14 @@
 import { motion } from "framer-motion"
 import { GradientText } from "@/components/ui/gradient-text"
 import { aboutPageContent } from "@/content/pages/about"
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-}
-
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-}
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations"
 
 export default function AboutPage() {
     return (
         <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             {/* Hero Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5 }}
                 className="mb-16 md:mb-24"
             >
@@ -43,8 +28,7 @@ export default function AboutPage() {
             {/* What I Do Section */}
             <section className="mb-16 md:mb-24">
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     className="mb-8 text-center md:text-left"
@@ -52,7 +36,7 @@ export default function AboutPage() {
                     {aboutPageContent.servicesSection.heading}
                 </motion.h2>
                 <motion.div
-                    variants={container}
+                    variants={staggerContainer}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
@@ -63,7 +47,7 @@ export default function AboutPage() {
                         return (
                             <motion.div
                                 key={service.title}
-                                variants={item}
+                                variants={staggerItem}
                                 whileHover={{ scale: 1.03, y: -4 }}
                                 className="rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50"
                             >
@@ -81,8 +65,7 @@ export default function AboutPage() {
             {/* Experience Timeline */}
             <section>
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     className="mb-8 text-center md:text-left"
@@ -90,8 +73,7 @@ export default function AboutPage() {
                     {aboutPageContent.experienceSection.heading}
                 </motion.h2>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true, amount: 0.1 }}
                     className="space-y-8 max-w-3xl"

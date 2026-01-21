@@ -5,6 +5,7 @@ import { X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { contactDrawerContent } from "@/content/ui/contact-drawer"
+import { fadeIn, fadeInUp } from "@/lib/animations"
 
 interface ContactDrawerProps {
     open: boolean
@@ -29,8 +30,7 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                 <>
                     {/* Backdrop */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        {...fadeIn}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
@@ -58,18 +58,11 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                             mass: 0.8
                         }}
                         className="fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background md:inset-x-auto md:inset-y-0 md:right-0 md:h-full md:w-full md:max-w-md md:rounded-none md:border-l"
-                        style={{
-                            // Override for mobile - slide from bottom
-                            ...(typeof window !== 'undefined' && window.innerWidth < 768 ? {
-                                x: 0,
-                            } : {})
-                        }}
                     >
                         <div className="flex flex-col h-full">
                             {/* Header */}
                             <motion.div
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                {...fadeInUp}
                                 transition={{ delay: 0.1, duration: 0.3 }}
                                 className="flex items-center justify-between border-b p-6"
                             >
@@ -87,8 +80,7 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
                             <div className="flex-1 overflow-y-auto p-6">
                                 <div className="space-y-6">
                                     <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
+                                        {...fadeInUp}
                                         transition={{ delay: 0.15, duration: 0.3 }}
                                     >
                                         <h3 className="text-lg font-semibold mb-2">{contactDrawerContent.intro.heading}</h3>
@@ -134,8 +126,7 @@ export function ContactDrawer({ open, onOpenChange }: ContactDrawerProps) {
 
                             {/* Footer */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                {...fadeInUp}
                                 transition={{ delay: 0.25, duration: 0.3 }}
                                 className="border-t p-6"
                             >

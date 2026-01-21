@@ -12,6 +12,24 @@ interface CommandPaletteProps {
     onOpenChange: (open: boolean) => void
 }
 
+interface CommandItemProps {
+    icon: React.ComponentType<{ className?: string }>
+    label: string
+    onSelect: () => void
+}
+
+function CommandItem({ icon: Icon, label, onSelect }: CommandItemProps) {
+    return (
+        <Command.Item
+            onSelect={onSelect}
+            className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+        >
+            <Icon className="mr-2 h-4 w-4" />
+            <span>{label}</span>
+        </Command.Item>
+    )
+}
+
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     const router = useRouter()
     const [search, setSearch] = React.useState("")
@@ -63,49 +81,34 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                             {commandPaletteContent.emptyStateMessage}
                         </Command.Empty>
                         <Command.Group heading={commandPaletteContent.groups.navigation.heading}>
-                            {commandPaletteContent.groups.navigation.items.map((item) => {
-                                const Icon = item.icon
-                                return (
-                                    <Command.Item
-                                        key={item.path}
-                                        onSelect={() => handleSelect(() => router.push(item.path))}
-                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                                    >
-                                        <Icon className="mr-2 h-4 w-4" />
-                                        <span>{item.label}</span>
-                                    </Command.Item>
-                                )
-                            })}
+                            {commandPaletteContent.groups.navigation.items.map((item) => (
+                                <CommandItem
+                                    key={item.path}
+                                    icon={item.icon}
+                                    label={item.label}
+                                    onSelect={() => handleSelect(() => router.push(item.path))}
+                                />
+                            ))}
                         </Command.Group>
                         <Command.Group heading={commandPaletteContent.groups.actions.heading}>
-                            {commandPaletteContent.groups.actions.items.map((item) => {
-                                const Icon = item.icon
-                                return (
-                                    <Command.Item
-                                        key={item.url}
-                                        onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
-                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                                    >
-                                        <Icon className="mr-2 h-4 w-4" />
-                                        <span>{item.label}</span>
-                                    </Command.Item>
-                                )
-                            })}
+                            {commandPaletteContent.groups.actions.items.map((item) => (
+                                <CommandItem
+                                    key={item.url}
+                                    icon={item.icon}
+                                    label={item.label}
+                                    onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                />
+                            ))}
                         </Command.Group>
                         <Command.Group heading={commandPaletteContent.groups.social.heading}>
-                            {commandPaletteContent.groups.social.items.map((item) => {
-                                const Icon = item.icon
-                                return (
-                                    <Command.Item
-                                        key={item.url}
-                                        onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
-                                        className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                                    >
-                                        <Icon className="mr-2 h-4 w-4" />
-                                        <span>{item.label}</span>
-                                    </Command.Item>
-                                )
-                            })}
+                            {commandPaletteContent.groups.social.items.map((item) => (
+                                <CommandItem
+                                    key={item.url}
+                                    icon={item.icon}
+                                    label={item.label}
+                                    onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                />
+                            ))}
                         </Command.Group>
                     </Command.List>
                 </Command>
