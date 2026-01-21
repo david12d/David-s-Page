@@ -1,0 +1,39 @@
+# Conventional Commit Message Template
+#
+# Format: <type>(<scope>): <subject>
+#
+# <body>
+#
+# <footer>
+#
+# Types:
+#   feat:     A new feature
+#   fix:      A bug fix
+#   docs:     Documentation only changes
+#   style:    Changes that don't affect code meaning (formatting, etc.)
+#   refactor: Code change that neither fixes a bug nor adds a feature
+#   perf:     Performance improvement
+#   test:     Adding missing tests or correcting existing tests
+#   build:    Changes affecting build system or dependencies
+#   ci:       Changes to CI configuration files and scripts
+#   chore:    Other changes that don't modify src or test files
+#
+# Scope (optional): Component or area affected (e.g., navbar, auth, api)
+#
+# Subject: Short summary in present tense, no period at end (max 50 chars)
+#
+# Body (optional): Detailed description - WHY the change, not WHAT changed
+#
+# Footer (optional): Breaking changes, issue references
+#   - BREAKING CHANGE: description of breaking change
+#   - Closes #123
+#   - Fixes #456
+#   - Refs #789
+#
+# Example:
+# feat(auth): add Google OAuth integration
+#
+# Implemented Google OAuth 2.0 for user authentication to provide
+# a more seamless login experience.
+#
+# Closes #42
