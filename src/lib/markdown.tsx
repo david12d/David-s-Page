@@ -45,19 +45,22 @@ export function MarkdownLine({ line, index }: MarkdownLineProps) {
     // Inline code
     if (line.includes("`") && !line.startsWith("```")) {
         const parts = line.split("`")
-        return (
-            <p key={index} className="mb-4 leading-7">
-                {parts.map((part, i) =>
-                    i % 2 === 0 ? (
-                        part
-                    ) : (
-                        <code key={i} className="px-1.5 py-0.5 rounded bg-muted text-sm font-mono">
-                            {part}
-                        </code>
-                    )
-                )}
-            </p>
-        )
+        // Only render as code if we have an even number of parts (pairs of backticks)
+        if (parts.length > 1 && parts.length % 2 === 1) {
+            return (
+                <p key={index} className="mb-4 leading-7">
+                    {parts.map((part, i) =>
+                        i % 2 === 0 ? (
+                            part
+                        ) : (
+                            <code key={i} className="px-1.5 py-0.5 rounded bg-muted text-sm font-mono">
+                                {part}
+                            </code>
+                        )
+                    )}
+                </p>
+            )
+        }
     }
 
     // Regular paragraph
