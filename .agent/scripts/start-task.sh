@@ -97,7 +97,7 @@ issue_url=$(gh issue create \
     --web)
 
 # Extract issue number from URL
-issue_number=$(echo "$issue_url" | grep -o '[0-9]*$')
+issue_number=$(echo "$issue_url" | grep -o '[0-9]\+$')
 
 print_success "Issue #$issue_number created: $issue_url"
 
