@@ -17,5 +17,5 @@ export const attributionPageContent = {
         }
     ],
 
-    closingMessage: "Best,"
+    closingMessage: "Best, David Ding"
 }

@@ -13,8 +13,6 @@ export const footerContent = {
         specifics: {
             heading: "Specifics",
             links: [
-                { label: "Guest Book", href: "/guestbook" },
-                { label: "Bucket List", href: "/bucket-list" },
                 { label: "Uses", href: "/uses" },
                 { label: "Attribution", href: "/attribution" },
             ]
@@ -23,8 +21,6 @@ export const footerContent = {
             heading: "More",
             links: [
                 { label: "Book a call", href: "/contact" },
-                { label: "Links", href: "/links" },
-                { label: "RSS", href: "/rss" },
             ]
         }
     },

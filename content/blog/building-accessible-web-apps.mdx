@@ -1,0 +1,78 @@
+---
+title: Building Accessible Web Applications
+excerpt: Learn essential accessibility principles and practical techniques to make your web applications usable by everyone.
+date: 2024-10-10
+tags:
+  - Accessibility
+  - Web Development
+  - Best Practices
+readTime: 6 min read
+image: /blog/accessibility.jpg
+featured: false
+---
+
+Web accessibility ensures everyone can use your applications, regardless of their abilities. Let's explore key principles and techniques.
+
+## Why Accessibility Matters
+
+- **Inclusive Design**: Reach a wider audience
+- **Legal Requirements**: Comply with regulations (ADA, WCAG)
+- **Better UX**: Accessibility improvements benefit all users
+- **SEO Benefits**: Better structure helps search engines
+
+## Essential Accessibility Principles
+
+### 1. Semantic HTML
+
+Use the right elements for the job:
+
+```html
+<!-- Good -->
+<button>Click me</button>
+<nav>...</nav>
+<main>...</main>
+
+<!-- Bad -->
+<div onclick="...">Click me</div>
+<div class="navigation">...</div>
+```
+
+### 2. Keyboard Navigation
+
+Ensure all interactive elements are keyboard accessible:
+
+```tsx
+function Dialog({ isOpen, onClose }: DialogProps) {
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [onClose])
+  
+  return isOpen ? <div role="dialog">...</div> : null
+}
+```
+
+### 3. ARIA Labels
+
+Provide context for screen readers:
+
+```tsx
+<button aria-label="Close dialog" onClick={onClose}>
+  <X className="h-4 w-4" />
+</button>
+```
+
+## Testing for Accessibility
+
+Use these tools:
+
+- **axe DevTools**: Browser extension for accessibility testing
+- **WAVE**: Web accessibility evaluation tool
+- **Screen Readers**: Test with NVDA, JAWS, or VoiceOver
+
+## Conclusion
+
+Building accessible applications is not just a nice-to-have—it's essential for creating inclusive digital experiences.

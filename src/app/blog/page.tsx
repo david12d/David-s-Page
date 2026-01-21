@@ -3,8 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Calendar, Clock } from "lucide-react"
-import { blogPosts } from "@/lib/blog-data"
-import { Button } from "@/components/ui/button"
+import { allBlogPosts } from "contentlayer/generated"
 import { GradientText } from "@/components/ui/gradient-text"
 import { blogPageContent } from "@/content/pages/blog"
 
@@ -22,6 +21,11 @@ const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
 }
+
+// Sort posts by date, newest first
+const sortedPosts = allBlogPosts.sort((a, b) =>
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+)
 
 export default function BlogPage() {
     return (
@@ -47,14 +51,14 @@ export default function BlogPage() {
                 animate="show"
                 className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-                {blogPosts.map((post) => (
+                {sortedPosts.map((post) => (
                     <motion.article
                         key={post.slug}
                         variants={item}
                         whileHover={{ y: -4 }}
                         className="group"
                     >
-                        <Link href={`/blog/${post.slug}`}>
+                        <Link href={post.url}>
                             <div className="rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50 h-full flex flex-col">
                                 <div className="flex-1">
                                     <h2 className="mb-3 text-2xl font-bold group-hover:text-primary transition-colors">

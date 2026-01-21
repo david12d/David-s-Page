@@ -10,7 +10,10 @@ import { Button } from "@/components/ui/button"
 import { GradientText } from "@/components/ui/gradient-text"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { projectsPageContent } from "@/content/pages/projects"
+import { allProjects } from "contentlayer/generated"
+
+// Get unique categories from projects
+const categories = ["All", ...Array.from(new Set(allProjects.map(p => p.category)))]
 
 export default function ProjectsPage() {
     return (
@@ -18,18 +21,17 @@ export default function ProjectsPage() {
             <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
                 <div className="flex-1 space-y-4">
                     <h1 className="font-bold text-4xl tracking-tight lg:text-5xl">
-                        {projectsPageContent.heading.prefix && `${projectsPageContent.heading.prefix} `}
-                        <GradientText>{projectsPageContent.heading.highlight}</GradientText>
+                        <GradientText>Projects</GradientText>
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        {projectsPageContent.description}
+                        A portfolio of technology advisory, cloud transformation, and innovation projects across various industries.
                     </p>
                 </div>
             </div>
             <hr className="my-8" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {projectsPageContent.projects.map((project) => (
-                    <Card key={project.title} className="flex flex-col">
+                {allProjects.map((project) => (
+                    <Card key={project.slug} className="flex flex-col">
                         <CardHeader>
                             <CardTitle>{project.title}</CardTitle>
                             <CardDescription className="mt-2">
@@ -50,8 +52,8 @@ export default function ProjectsPage() {
                         </CardContent>
                         <CardFooter>
                             <Button asChild className="w-full">
-                                <Link href={`/projects/${project.slug}`}>
-                                    {projectsPageContent.buttons.viewProject} <ArrowRight className="ml-2 h-4 w-4" />
+                                <Link href={project.url}>
+                                    View Project <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
                         </CardFooter>

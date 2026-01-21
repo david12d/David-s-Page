@@ -27,8 +27,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "David Portfolio",
-  description: "Personal portfolio website built with Next.js",
+  title: "David's Digital Garden",
+  description: "Personal portfolio website of a technology fan",
 };
 
 export default function RootLayout({

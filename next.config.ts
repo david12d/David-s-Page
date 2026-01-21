@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer2";
 
 const nextConfig: NextConfig = {
   images: {
@@ -9,6 +10,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Empty turbopack config to silence the warning
+  // Contentlayer uses webpack plugin, but Turbopack handles MDX natively
+  turbopack: {},
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
