@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GradientText } from "@/components/ui/gradient-text"
@@ -14,11 +15,27 @@ export function Hero() {
     return (
         <section className="container mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-screen-2xl flex-col items-center justify-center space-y-8 py-24 px-6 md:px-12 lg:px-24 text-center md:py-32">
             <div className="space-y-4">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex justify-center mb-8"
+                >
+                    <div className="relative w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-background shadow-xl">
+                        <Image
+                            src={heroContent.image}
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </div>
+                </motion.div>
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className=""
                 >
                     {heroContent.heading.line1} <br className="hidden sm:inline" />
                     <span className="text-primary">{heroContent.heading.line2}</span>{" "}
@@ -28,7 +45,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+                    className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
                 >
                     {heroContent.description}
                 </motion.p>

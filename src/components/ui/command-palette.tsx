@@ -4,7 +4,6 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { Command } from "cmdk"
 import { Search, X } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { commandPaletteContent } from "@/content/ui/command-palette"
 
 interface CommandPaletteProps {

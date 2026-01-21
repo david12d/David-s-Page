@@ -75,6 +75,18 @@ export const usesPageContent = {
                     url: "https://vercel.com/",
                     logo: "/logos/vercel.svg",
                     description: "Deployment platform for modern web applications. Seamless integration with Next.js for instant previews and production deployments."
+                },
+                {
+                    name: "AWS",
+                    url: "https://aws.amazon.com/",
+                    logo: "/logos/aws.svg",
+                    description: "My primary cloud provider for scalable backend infrastructure, serverless functions, and storage."
+                },
+                {
+                    name: "GCP",
+                    url: "https://cloud.google.com/",
+                    logo: "/logos/gcp.svg",
+                    description: "My preferred choice for data analytics, AI/ML workloads, and containerized applications."
                 }
             ]
         },
@@ -98,12 +110,6 @@ export const usesPageContent = {
                     url: "https://miro.com/",
                     logo: "/logos/miro.svg",
                     description: "Digital whiteboarding for brainstorming, planning, and visual collaboration with teams."
-                },
-                {
-                    name: "Antigravity",
-                    url: "#", // No public URL for internal tool yet, or use a placeholder
-                    logo: "/logos/antigravity.svg",
-                    description: "AI-powered coding assistant that helps me write better code faster, debug issues, and explore new technologies."
                 }
             ]
         },
@@ -115,6 +121,18 @@ export const usesPageContent = {
                     url: "https://linear.app/",
                     logo: "/logos/linear.svg",
                     description: "Issue tracking and project management that's fast, beautiful, and built for modern software teams."
+                },
+                {
+                    name: "Jira",
+                    url: "https://www.atlassian.com/software/jira",
+                    logo: "/logos/jira.svg",
+                    description: "Enterprise project tracking and agile software development tool."
+                },
+                {
+                    name: "Confluence",
+                    url: "https://www.atlassian.com/software/confluence",
+                    logo: "/logos/confluence.png",
+                    description: "Remote-friendly team workspace for knowledge sharing and collaboration."
                 }
             ]
         },
@@ -126,6 +144,12 @@ export const usesPageContent = {
                     url: "https://gemini.google.com/",
                     logo: "/logos/gemini.svg",
                     description: "Google's AI assistant for research, writing assistance, and exploring ideas."
+                },
+                {
+                    name: "Antigravity",
+                    url: "#",
+                    logo: "/logos/antigravity.svg",
+                    description: "AI-powered coding assistant that helps me write better code faster, debug issues, and explore new technologies."
                 }
             ]
         },

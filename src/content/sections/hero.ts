@@ -2,8 +2,9 @@ export const heroContent = {
     heading: {
         line1: "Technology &",
         line2: "Business",
-        highlight: "Advisor"
+        highlight: "Strategist"
     },
+    image: "/images/profile-hero.jpg",
     description: "Outcome-focused executive advisor who can articulate technology transformation to executives whilst engaging at detail with finance and technical teams.",
     specializations: [
         "Technology Strategy",

@@ -87,12 +87,9 @@
 **Missing Components:**
 - [ ] "More About Me" hero section with personal introduction
 - [ ] Personal photo/avatar
-- [ ] "I Travel" section with travel experiences
 - [ ] "The Experience" section with detailed work history timeline
 - [ ] Fix timeline animation visibility issue (reported bug)
 - [ ] Work experience details with bullet points
-- [ ] "My Site" navigation cards (Uses, Guestbook)
-- [ ] Social links integration
 - [ ] Animated timeline visualization
 - [ ] Scroll animations and effects
 
@@ -101,89 +98,6 @@
 - Working timeline with proper animations
 - All sections responsive and accessible
 - Professional photo/avatar integrated
-
----
-
-#### Issue 2: Create Guestbook Page
-**Status:** Not Implemented | **Effort:** 2-3 days
-
-**Requirements:**
-- [ ] Create `/guestbook` route
-- [ ] Design guestbook message card UI
-- [ ] Implement message submission form
-- [ ] Message display with pagination
-- [ ] Timestamp and visitor name display
-- [ ] Optional: Message moderation system
-- [ ] Responsive design
-- [ ] Proper validation and error handling
-
-**Technical Notes:**
-- May need backend integration or database
-- Consider using form submission service (e.g., Formspree, Tally)
-- Add rate limiting for spam prevention
-
-**Acceptance Criteria:**
-- Users can submit and view messages
-- Messages display with proper formatting
-- Form has validation and error states
-- Mobile-responsive layout
-
----
-
-#### Issue 3: Create Bucket List Page
-**Status:** Not Implemented | **Effort:** 1 day
-
-**Requirements:**
-- [ ] Create `/bucket-list` route
-- [ ] Design bucket list item cards
-- [ ] Categories for different types of goals
-- [ ] Visual indicators for completed vs. pending items
-- [ ] Interactive completion toggle (optional)
-- [ ] Responsive grid layout
-- [ ] Smooth animations
-
-**Content Needed:**
-- Personal goals and aspirations
-- Travel destinations
-- Professional milestones
-- Personal achievements
-
-**Acceptance Criteria:**
-- Page displays categorized bucket list items
-- Clear visual distinction for completed items
-- Engaging and personal presentation
-- Mobile-responsive
-
----
-
-#### Issue 4: Implement GitHub Stats Integration
-**Status:** Not Implemented | **Effort:** 2 days
-
-**Description:** Add "Developer Insights" section on About page with live GitHub statistics.
-
-**Required Stats:**
-- [ ] Followers count
-- [ ] Total Stars across repositories
-- [ ] Public Repos count
-- [ ] Total Forks count
-- [ ] Optional: Contribution graph
-- [ ] Optional: Top languages
-- [ ] Optional: Recent activity
-
-**Technical Implementation:**
-- [ ] Create GitHub API client service
-- [ ] Implement caching to avoid rate limits
-- [ ] Design stats display cards
-- [ ] Add loading states
-- [ ] Error handling for API failures
-- [ ] Consider using GitHub GraphQL API
-
-**Acceptance Criteria:**
-- Live stats display on About page
-- Proper loading and error states
-- Respects GitHub API rate limits
-- Cached appropriately
-- Stats update periodically
 
 ---
 
@@ -222,20 +136,14 @@
 **Status:** Partially Implemented | **Effort:** 3-4 days
 
 **Missing Sections:**
-- [ ] "The Inside Scoop" dynamic section in hero
-- [ ] Collaboration badges/tags in hero
 - [ ] Animated gradient text effects
 - [ ] "Word on the street about me" testimonials enhancement
-- [ ] "My Site" section with Uses/Guestbook preview cards
-- [ ] About Me preview section
 - [ ] Scroll-triggered animations between sections
-- [ ] Custom cursor effects (optional)
 
 **Visual Enhancements:**
-- [ ] Glassmorphism effects on cards
+- [x] Glassmorphism effects on cards
 - [ ] Enhanced hover animations
 - [ ] Gradient overlays on images
-- [ ] "The Secret Sauce" styling for tech stack
 
 **Acceptance Criteria:**
 - All sections present and functional
@@ -250,9 +158,8 @@
 **Status:** Partially Implemented | **Effort:** 2-3 days
 
 **Requirements:**
-- [ ] Add "The Blog" header with "Handpicked insights from the pensieve" subtitle
+- [ ] Add "The Blog" header with "Handpicked insights from the strategy sage" subtitle
 - [ ] Implement date with relative time display (e.g., "9 mo ago")
-- [ ] Add "Recently released" badge for new posts
 - [ ] Display read time estimation on cards
 - [ ] Add topic tags (frontend, tools, productivity, etc.)
 - [ ] Implement topic filter/navigation
@@ -322,41 +229,6 @@
 - Client testimonials with attribution
 - Professional headshots
 - Company information
-
----
-
-#### Issue 10: Implement SEO Optimization
-**Status:** Not Implemented | **Effort:** 2 days
-
-**Requirements:**
-- [ ] Complete meta tags for all pages
-- [ ] OpenGraph tags for social sharing
-- [ ] Twitter card tags
-- [ ] Structured data (JSON-LD) for pages
-- [ ] Generate dynamic sitemap.xml
-- [ ] Configure robots.txt
-- [ ] Add canonical URLs
-- [ ] Implement RSS feed for blog
-
-**Technical Implementation:**
-- [ ] Use Next.js metadata API
-- [ ] Setup next-sitemap package
-- [ ] Create RSS feed generator
-- [ ] Add schema.org structured data
-
----
-
-#### Issue 11: Create Contact Page
-**Status:** Not Implemented | **Effort:** 1 day
-
-**Requirements:**
-- [ ] Create `/contact` route
-- [ ] Contact form with validation
-- [ ] Multiple contact methods display
-- [ ] Social links
-- [ ] Calendly integration
-- [ ] Success/error states
-- [ ] Form submission handling
 
 ---
 

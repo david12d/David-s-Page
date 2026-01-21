@@ -66,7 +66,7 @@ export default function UsesPage() {
             </section>
 
             {/* Tool Categories */}
-            {usesPageContent.toolCategories.map((category, categoryIndex) => (
+            {usesPageContent.toolCategories.map((category) => (
                 <section key={category.title} className="mb-16 md:mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}

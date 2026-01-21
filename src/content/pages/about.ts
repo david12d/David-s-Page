@@ -5,6 +5,7 @@ export const aboutPageContent = {
         prefix: "About",
         highlight: "Me"
     },
+    profileImage: "/images/profile-about.jpg",
     introParagraphs: [
         "My journey into the world of technology and business began with a curiosity about how systems work and a desire to make a meaningful impact. Growing up, I was always fascinated by the intersection of technology and business, which led me to pursue a Bachelor of Commerce & IT and later a Masters in Business Administration.",
         "I currently serve as a Senior Consultant at Slalom, where I focus on Technology Strategy, Cloud Transformation, and FinOps. My experience spans Cloud Architecture (AWS, Azure), Data Analytics, BI & AI (PowerBI, Snowflake, Salesforce), and IT Operating Models (ITSM).",
@@ -13,7 +14,7 @@ export const aboutPageContent = {
 
     servicesSection: {
         heading: "Expertise",
-        subHeading: "Services Offered",
+        subHeading: "Previous Experience",
         services: [
             {
                 title: "Startup Advisory",
@@ -71,8 +72,8 @@ export const aboutPageContent = {
             "Education",
             "Technology",
             "Financial Services",
-            "Non-for profit industry",
-            "Communications industry"
+            "Non-for profit",
+            "Communications"
         ]
     },
 
@@ -86,7 +87,8 @@ export const aboutPageContent = {
                 items: [
                     { name: "AWS", logo: "/logos/aws.svg" },
                     { name: "Azure", logo: "/logos/azure.svg" },
-                    { name: "Dynamics 365", logo: "/logos/dynamics365.svg" }
+                    { name: "Dynamics 365", logo: "/logos/dynamics365.svg" },
+                    { name: "Apptio", logo: "/logos/apptio.svg" }
                 ]
             },
             {
@@ -102,7 +104,7 @@ export const aboutPageContent = {
             {
                 name: "Integration",
                 items: [
-                    { name: "Mulesoft", logo: "" }, // Missing logo
+                    { name: "Mulesoft", logo: "/logos/mulesoft.svg" },
                     { name: "AWS API Gateway", logo: "/logos/aws.svg" },
                     { name: "Model Context Protocol", logo: "" } // Missing logo
                 ]
@@ -111,7 +113,7 @@ export const aboutPageContent = {
                 name: "CI/CD",
                 items: [
                     { name: "Github Actions", logo: "/logos/github.svg" },
-                    { name: "Gitlab", logo: "" } // Missing logo
+                    { name: "Gitlab", logo: "/logos/gitlab.svg" }
                 ]
             },
             {
@@ -135,7 +137,7 @@ export const aboutPageContent = {
                     { name: "Cursor", logo: "" }, // Missing logo
                     { name: "Github Copilot", logo: "/logos/github.svg" },
                     { name: "Amazon Bedrock", logo: "/logos/aws.svg" },
-                    { name: "n8n", logo: "" }, // Missing logo
+                    { name: "n8n", logo: "/logos/n8n.svg" },
                     { name: "Relevance AI", logo: "" } // Missing logo
                 ]
             }
@@ -145,25 +147,21 @@ export const aboutPageContent = {
     certificationsSection: {
         heading: "Certifications",
         certifications: [
-            {
-                name: "Salesforce AI Associate",
-                year: "2024",
-                issuer: "Salesforce"
-            },
+
             {
                 name: "AWS Certified Solutions Architect – Professional",
                 year: "2024",
                 issuer: "Amazon Web Services"
             },
             {
-                name: "FinOps Certified Practitioner",
-                year: "2023",
-                issuer: "FinOps Foundation"
-            },
-            {
                 name: "Salesforce AI Associate",
                 year: "2024",
                 issuer: "Salesforce"
+            },
+            {
+                name: "FinOps Certified Practitioner",
+                year: "2023",
+                issuer: "FinOps Foundation"
             },
             {
                 name: "Generative AI Fundamentals",
@@ -184,6 +182,11 @@ export const aboutPageContent = {
                 name: "AWS Certified Solutions Architect – Associate",
                 year: "2022",
                 issuer: "Amazon Web Services"
+            },
+            {
+                name: "Azure Fundamentals",
+                year: "2022",
+                issuer: "Microsoft"
             },
             {
                 name: "Google Cloud Digital Leader",
@@ -207,23 +210,10 @@ export const aboutPageContent = {
         heading: "Experience",
         timeline: [
             {
-                title: "Co-Founder & Chief Technology Officer",
-                company: "Dremedy Medical",
-                period: "2023 - Present",
-                description: "Leading biomedical device startup developing innovative at-home immune system monitoring solutions for chemotherapy patients. Spearheading technology strategy, product development, and business growth.",
-                highlights: [
-                    "Won Endeavour Research & Commercialisation Award for innovation in medical technology",
-                    "Full-stack solution architecture on Google Cloud Platform (GCP)",
-                    "AI & machine learning integration for predictive health analytics",
-                    "Business strategy development across go-to-market, intellectual property, and strategic partnerships",
-                    "Cross-functional leadership spanning engineering, clinical research, and regulatory compliance"
-                ]
-            },
-            {
                 title: "Senior Consultant",
                 company: "Slalom",
                 period: "2021 - Present",
-                description: "Delivering technology strategy, cloud transformation, and FinOps consulting across diverse sectors including government, healthcare, education, and financial services. Contributing to Southeast Asia expansion and Defense ICTPA panel initiatives.",
+                description: "Delivering technology strategy, cloud transformation, and FinOps consulting across diverse sectors including government, healthcare, education, and financial services. C-suite advisor and transformation partner for complex, large scale programs",
                 highlights: [
                     "Cloud Architecture design and implementation (AWS, Azure, GCP)",
                     "Data Analytics, Business Intelligence & AI solutions (PowerBI, Snowflake, Salesforce)",
@@ -234,9 +224,22 @@ export const aboutPageContent = {
                 ]
             },
             {
-                title: "Technology Consultant",
+                title: "Medtech Startup Co-Founder",
+                company: "Dremedy Medical",
+                period: "2025 - 2026",
+                description: "Leading biomedical device startup developing innovative at-home immune system monitoring solutions for chemotherapy patients. Spearheading technology strategy, product development, and business growth.",
+                highlights: [
+                    "Won Endeavour Research & Commercialisation Award for innovation in medical technology",
+                    "Full-stack solution architecture on Google Cloud Platform (GCP)",
+                    "AI & machine learning integration for predictive health analytics",
+                    "Business strategy development across go-to-market, intellectual property, and strategic partnerships",
+                    "Cross-functional leadership spanning engineering, clinical research, and regulatory compliance"
+                ]
+            },
+            {
+                title: "Commercial Solutions Architect",
                 company: "Accenture",
-                period: "2020 - 2021",
+                period: "2018 - 2021",
                 description: "Worked on digital transformation initiatives and internal knowledge management systems using human-centered design principles. Gained experience in enterprise technology consulting and agile delivery methodologies.",
                 highlights: [
                     "Internal knowledge management platform development",

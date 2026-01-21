@@ -30,6 +30,15 @@ export default function AboutPage() {
                 transition={{ duration: 0.5 }}
                 className="mb-16 md:mb-24"
             >
+                <div className="relative w-72 h-72 mx-auto mb-10 rounded-full overflow-hidden border-4 border-background shadow-xl">
+                    <Image
+                        src={aboutPageContent.profileImage}
+                        alt="Profile"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
                 <h1 className="mb-6">
                     {aboutPageContent.pageHeading.prefix}{" "}
                     <GradientText>{aboutPageContent.pageHeading.highlight}</GradientText>
