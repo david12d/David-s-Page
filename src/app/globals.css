@@ -90,7 +90,29 @@
 }
 
 @layer base {
+
+  /* Light Sepia Theme (Default) */
   :root {
+    --background: #f5f0e6;
+    --foreground: #3d3929;
+    --primary: #5c4b32;
+    --primary-foreground: #f5f0e6;
+    --secondary: #e8e0d0;
+    --secondary-foreground: #3d3929;
+    --muted: #e8e0d0;
+    --muted-foreground: #6b5d47;
+    --accent: #d4c9b5;
+    --accent-foreground: #3d3929;
+    --destructive: #a83232;
+    --destructive-foreground: #f5f0e6;
+    --border: #d4c9b5;
+    --input: #e8e0d0;
+    --ring: #8b7355;
+    --radius: 0.5rem;
+  }
+
+  /* Dark Theme */
+  .dark {
     --background: #0a0a0a;
     --foreground: #fafafa;
     --primary: #fafafa;
@@ -106,7 +128,6 @@
     --border: #27272a;
     --input: #27272a;
     --ring: #d4d4d8;
-    --radius: 0.5rem;
   }
 }
 
@@ -162,4 +183,16 @@
   p {
     line-height: 1.7;
   }
+}
+
+/* Utility class for logos that inverts in dark mode */
+.logo-adaptive {
+  filter: none;
+  transition: filter 0.2s ease-in-out;
+}
+
+:root.dark .logo-adaptive,
+html.dark .logo-adaptive,
+.dark .logo-adaptive {
+  filter: invert(1) brightness(2);
 }

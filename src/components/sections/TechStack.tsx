@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { GradientText } from "@/components/ui/gradient-text"
 import { techStackContent } from "@/content/sections/tech-stack"
 
@@ -17,23 +18,27 @@ export function TechStack() {
                 </p>
             </div>
             <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3 lg:grid-cols-5">
-                {techStackContent.technologies.map((tech, index) => {
-                    const Icon = tech.icon
-                    return (
-                        <motion.div
-                            key={tech.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.05, y: -4 }}
-                            className="flex flex-col items-center justify-center gap-3 rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50"
-                        >
-                            <Icon className="h-8 w-8 text-primary" />
-                            <span className="text-sm font-semibold">{tech.name}</span>
-                        </motion.div>
-                    )
-                })}
+                {techStackContent.technologies.map((tech, index) => (
+                    <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.05, y: -4 }}
+                        className="flex flex-col items-center justify-center gap-3 rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50"
+                    >
+                        <div className="relative h-10 w-10">
+                            <Image
+                                src={tech.logo}
+                                alt={tech.name}
+                                fill
+                                className="object-contain logo-adaptive"
+                            />
+                        </div>
+                        <span className="text-sm font-semibold">{tech.name}</span>
+                    </motion.div>
+                ))}
             </div>
         </section>
     )

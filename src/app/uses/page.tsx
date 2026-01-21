@@ -100,7 +100,7 @@ export default function UsesPage() {
                                     src={tool.logo}
                                     alt={tool.name}
                                     fill
-                                    className="object-contain transition-opacity group-hover:opacity-80"
+                                    className="object-contain transition-opacity group-hover:opacity-80 logo-adaptive"
                                 />
                             </Link>
                         </motion.div>

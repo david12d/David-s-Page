@@ -19,67 +19,62 @@ export const usesPageContent = {
             {
                 name: "Alfred",
                 url: "https://www.alfredapp.com/",
-                logo: "https://www.alfredapp.com/favicon.ico"
+                logo: "/logos/alfred.svg"
             },
             {
                 name: "Firefox",
                 url: "https://www.mozilla.org/firefox/",
-                logo: "https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg"
+                logo: "/logos/firefox.svg"
             },
             {
                 name: "Google Workspace",
                 url: "https://workspace.google.com/",
-                logo: "https://www.gstatic.com/images/branding/product/2x/workspace_48dp.png"
+                logo: "/logos/google.svg"
             },
             {
                 name: "Obsidian",
                 url: "https://obsidian.md/",
-                logo: "https://obsidian.md/favicon.ico"
+                logo: "/logos/obsidian.svg"
             },
             {
                 name: "VSCode",
                 url: "https://code.visualstudio.com/",
-                logo: "https://code.visualstudio.com/favicon.ico"
-            },
-            {
-                name: "Antigravity",
-                url: "https://antigravity.dev/",
-                logo: "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
-            },
-            {
-                name: "Spotify",
-                url: "https://www.spotify.com/",
-                logo: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png"
-            },
-            {
-                name: "Things 3",
-                url: "https://culturedcode.com/things/",
-                logo: "https://culturedcode.com/things/support/assets/icon.png"
+                logo: "/logos/vscode.svg"
             },
             {
                 name: "Gemini",
                 url: "https://gemini.google.com/",
-                logo: "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+                logo: "/logos/gemini.svg"
+            },
+            {
+                name: "Spotify",
+                url: "https://www.spotify.com/",
+                logo: "/logos/spotify.svg"
             },
             {
                 name: "Miro",
                 url: "https://miro.com/",
-                logo: "https://miro.com/favicon.ico"
+                logo: "/logos/miro.svg"
             },
             {
                 name: "1Password",
                 url: "https://1password.com/",
-                logo: "https://1password.com/favicon.ico"
+                logo: "/logos/1password.svg"
             },
             {
                 name: "Linear",
                 url: "https://linear.app/",
-                logo: "https://linear.app/favicon.ico"
+                logo: "/logos/linear.svg"
             },
             {
-                name: "Rectangle",
-                url: "https://rectangleapp.com/",
-                logo: "https://rectangleapp.com/assets/images/mac512pts1x.png"
+                name: "GitHub",
+                url: "https://github.com/",
+                logo: "/logos/github.svg"
+            },
+            {
+                name: "Vercel",
+                url: "https://vercel.com/",
+                logo: "/logos/vercel.svg"
             }
         ]
     }

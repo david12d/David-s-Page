@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { CommandPalette } from "@/components/ui/command-palette"
 import { ContactDrawer } from "@/components/ui/contact-drawer"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Menu } from "lucide-react"
 import { navbarContent } from "@/content/layout/navbar"
 
@@ -33,7 +34,7 @@ export function Navbar() {
 
                         {/* Center - Glassmorphism Navigation Container */}
                         <nav className="hidden md:flex flex-1 justify-center">
-                            <div className="flex items-center gap-1 rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-xl px-3 py-2 shadow-lg">
+                            <div className="flex items-center gap-1 rounded-full border border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl px-3 py-2 shadow-lg dark:border-white/10 dark:bg-zinc-900/50">
                                 {navbarContent.navItems.map((item) => (
                                     <Link
                                         key={item.path}
@@ -41,8 +42,8 @@ export function Navbar() {
                                         className={cn(
                                             "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
                                             pathname === item.path
-                                                ? "bg-white/10 text-foreground"
-                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-white/5"
+                                                ? "bg-[#d4c9b5]/50 text-foreground dark:bg-white/10"
+                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-[#d4c9b5]/30 dark:hover:bg-white/5"
                                         )}
                                     >
                                         {item.name}
@@ -58,12 +59,18 @@ export function Navbar() {
                             </div>
                         </nav>
 
-                        {/* Right Side - Command K Button, Outside Container */}
+                        {/* Right Side - Theme Toggle & Command K Button, Outside Container */}
                         <div className="flex items-center gap-2 flex-shrink-0">
+                            {/* Theme Toggle Button */}
+                            <div className="hidden md:block">
+                                <ThemeToggle />
+                            </div>
+
+                            {/* Command K Button */}
                             <Button
                                 variant="outline"
                                 size="icon"
-                                className="hidden md:flex h-10 w-10 rounded-full border-white/10 bg-zinc-900/50 backdrop-blur-xl text-muted-foreground hover:bg-white/5"
+                                className="hidden md:flex h-10 w-10 rounded-full border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
                                 onClick={() => setCommandOpen(true)}
                             >
                                 <span className="font-mono text-xs">⌘K</span>
@@ -96,3 +103,4 @@ export function Navbar() {
         </>
     )
 }
+

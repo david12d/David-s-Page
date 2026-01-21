@@ -1,13 +1,3 @@
-import {
-    Cloud,
-    Database,
-    Brain,
-    DollarSign,
-    Code2,
-    GitBranch,
-    type LucideIcon
-} from "lucide-react"
-
 export const techStackContent = {
     heading: {
         prefix: "Tech",
@@ -15,20 +5,20 @@ export const techStackContent = {
     },
     description: "The technologies and platforms I work with to deliver enterprise solutions.",
     technologies: [
-        { name: "AWS", icon: Cloud, category: "Cloud" },
-        { name: "Azure", icon: Cloud, category: "Cloud" },
-        { name: "GCP", icon: Cloud, category: "Cloud" },
-        { name: "OpenAI", icon: Brain, category: "AI" },
-        { name: "Gemini", icon: Brain, category: "AI" },
-        { name: "Salesforce", icon: Database, category: "CRM/ERP" },
-        { name: "Dynamics 365", icon: Database, category: "CRM/ERP" },
-        { name: "PostgreSQL", icon: Database, category: "Data" },
-        { name: "Snowflake", icon: Database, category: "Data" },
-        { name: "Python", icon: Code2, category: "Development" },
-        { name: "TypeScript", icon: Code2, category: "Development" },
-        { name: "React", icon: Code2, category: "Development" },
-        { name: "GitHub", icon: GitBranch, category: "DevOps" },
-        { name: "Vercel", icon: Cloud, category: "Cloud" },
-        { name: "PowerBI", icon: Database, category: "Analytics" },
-    ] as Array<{ name: string; icon: LucideIcon; category: string }>
+        { name: "AWS", logo: "/logos/aws.svg", category: "Cloud" },
+        { name: "Azure", logo: "/logos/azure.svg", category: "Cloud" },
+        { name: "GCP", logo: "/logos/gcp.svg", category: "Cloud" },
+        { name: "OpenAI", logo: "/logos/openai.svg", category: "AI" },
+        { name: "Gemini", logo: "/logos/gemini.svg", category: "AI" },
+        { name: "Salesforce", logo: "/logos/salesforce.svg", category: "CRM/ERP" },
+        { name: "Dynamics 365", logo: "/logos/dynamics365.svg", category: "CRM/ERP" },
+        { name: "PostgreSQL", logo: "/logos/postgresql.svg", category: "Data" },
+        { name: "Snowflake", logo: "/logos/snowflake.svg", category: "Data" },
+        { name: "Python", logo: "/logos/python.svg", category: "Development" },
+        { name: "TypeScript", logo: "/logos/typescript.svg", category: "Development" },
+        { name: "React", logo: "/logos/react.svg", category: "Development" },
+        { name: "GitHub", logo: "/logos/github.svg", category: "DevOps" },
+        { name: "Vercel", logo: "/logos/vercel.svg", category: "Cloud" },
+        { name: "PowerBI", logo: "/logos/powerbi.svg", category: "Analytics" },
+    ] as Array<{ name: string; logo: string; category: string }>
 }
