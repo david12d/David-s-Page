@@ -112,12 +112,23 @@ if [ -z "$pr_description" ]; then
     else
         print_warning "origin/main not found; using local commit history for summary."
         commit_summary=$(git log --oneline HEAD | sed 's/^/- /')
-    fi
+    # Generate commit summary with proper newlines
+    pr_description="$(cat <<EOF
+## Summary
 
-    pr_description+="$commit_summary\n\n"
-    
+This PR addresses the changes for: $pr_title
+
+## Changes
+
+$(git log --oneline origin/main..HEAD | sed 's/^/- /')
+
+EOF
+)"
+
     if [ -n "$issue_number" ]; then
-        pr_description+="Closes #$issue_number"
+        pr_description+="
+
+Closes #$issue_number"
     fi
 fi
 
