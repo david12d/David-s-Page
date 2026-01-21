@@ -2,29 +2,14 @@
 
 import { motion } from "framer-motion"
 import { attributionPageContent } from "@/content/pages/attribution"
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-}
-
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-}
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations"
 
 export default function AttributionPage() {
     return (
         <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             {/* Hero Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5 }}
                 className="mb-16 md:mb-24"
             >
@@ -34,8 +19,7 @@ export default function AttributionPage() {
 
             {/* Journey Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mb-16 md:mb-24"
             >
@@ -48,8 +32,7 @@ export default function AttributionPage() {
 
             {/* Inspirations Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="mb-16 md:mb-24"
             >
@@ -57,7 +40,7 @@ export default function AttributionPage() {
                     {attributionPageContent.inspirationsHeading}
                 </p>
                 <motion.div
-                    variants={container}
+                    variants={staggerContainer}
                     initial="hidden"
                     animate="show"
                     className="space-y-4 max-w-3xl"
@@ -65,7 +48,7 @@ export default function AttributionPage() {
                     {attributionPageContent.inspirations.map((inspiration, index) => (
                         <motion.div
                             key={index}
-                            variants={item}
+                            variants={staggerItem}
                             className="rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/50"
                         >
                             <h3 className="mb-2 text-xl font-semibold">{inspiration.name}</h3>
@@ -77,8 +60,7 @@ export default function AttributionPage() {
 
             {/* Closing Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="max-w-3xl"
             >

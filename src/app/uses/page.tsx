@@ -5,18 +5,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { GradientText } from "@/components/ui/gradient-text"
 import { usesPageContent } from "@/content/pages/uses"
+import { fadeInUp, staggerContainer } from "@/lib/animations"
 
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.05,
-        },
-    },
-}
-
-const item = {
+const toolItem = {
     hidden: { opacity: 0, scale: 0.8 },
     show: { opacity: 1, scale: 1 },
 }
@@ -26,8 +17,7 @@ export default function UsesPage() {
         <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             {/* Hero Section */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5 }}
                 className="mb-16 md:mb-24"
             >
@@ -43,8 +33,7 @@ export default function UsesPage() {
             {/* Setup Section */}
             <section className="mb-16 md:mb-24">
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     className="mb-8 text-center md:text-left"
@@ -52,8 +41,7 @@ export default function UsesPage() {
                     {usesPageContent.setupSection.heading}
                 </motion.h2>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     className="rounded-lg border bg-card p-8 shadow-sm max-w-2xl"
@@ -68,8 +56,7 @@ export default function UsesPage() {
             {/* Software & Tools Section */}
             <section>
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    {...fadeInUp}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     className="mb-12 text-center md:text-left"
@@ -77,7 +64,7 @@ export default function UsesPage() {
                     {usesPageContent.toolsSection.heading}
                 </motion.h2>
                 <motion.div
-                    variants={container}
+                    variants={staggerContainer}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
@@ -86,7 +73,7 @@ export default function UsesPage() {
                     {usesPageContent.toolsSection.tools.map((tool) => (
                         <motion.div
                             key={tool.name}
-                            variants={item}
+                            variants={toolItem}
                             whileHover={{ scale: 1.1, y: -4 }}
                             className="flex items-center justify-center"
                         >

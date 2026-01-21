@@ -7,28 +7,13 @@ import { blogPosts } from "@/lib/blog-data"
 import { Button } from "@/components/ui/button"
 import { GradientText } from "@/components/ui/gradient-text"
 import { blogPageContent } from "@/content/pages/blog"
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-}
-
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-}
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations"
 
 export default function BlogPage() {
     return (
         <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeInUp}
                 transition={{ duration: 0.5 }}
                 className="mb-12 md:mb-16"
             >
@@ -42,7 +27,7 @@ export default function BlogPage() {
             </motion.div>
 
             <motion.div
-                variants={container}
+                variants={staggerContainer}
                 initial="hidden"
                 animate="show"
                 className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
@@ -50,7 +35,7 @@ export default function BlogPage() {
                 {blogPosts.map((post) => (
                     <motion.article
                         key={post.slug}
-                        variants={item}
+                        variants={staggerItem}
                         whileHover={{ y: -4 }}
                         className="group"
                     >
