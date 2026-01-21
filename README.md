@@ -188,9 +188,9 @@ export const heroContent = {
 
 ## 📊 Project Status
 
-**Current Progress**: ~40% feature parity with reference design
+**Current Progress**: ~42% feature parity with reference design
 
-See [BACKLOG.md](./BACKLOG.md) for detailed progress tracking and [GAP_ANALYSIS.md](./GAP_ANALYSIS.md) for feature comparison.
+See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress tracking, roadmap, gap analysis, and changelog.
 
 ### Completed Features ✅
 - Core navigation and layout
