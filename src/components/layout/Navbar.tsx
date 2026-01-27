@@ -34,7 +34,7 @@ export function Navbar() {
 
                         {/* Center - Glassmorphism Navigation Container */}
                         <nav className="hidden md:flex flex-1 justify-center">
-                            <div className="flex items-center gap-1 rounded-full border border-[#e4d8c2] bg-[#f8f5ee]/70 backdrop-blur-2xl px-3 py-2 shadow-[0_10px_40px_rgba(120,98,67,0.12)] dark:border-white/10 dark:bg-zinc-900/50">
+                            <div className="navbar-glass flex items-center gap-1 rounded-full px-3 py-2">
                                 {navbarContent.navItems.map((item) => (
                                     <Link
                                         key={item.path}
@@ -42,8 +42,8 @@ export function Navbar() {
                                         className={cn(
                                             "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
                                             pathname === item.path
-                                                ? "bg-[#eadfc9]/60 text-foreground dark:bg-white/10"
-                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-[#eadfc9]/40 dark:hover:bg-white/5"
+                                                ? "bg-[#f5efe3]/90 text-foreground shadow-sm dark:bg-white/10 nav-link-active"
+                                                : "text-foreground/70 hover:text-foreground hover:bg-[#f6efe5]/85 dark:hover:bg-white/10"
                                         )}
                                     >
                                         {item.name}
@@ -70,7 +70,7 @@ export function Navbar() {
                             <Button
                                 variant="outline"
                                 size="icon"
-                                className="hidden md:flex h-10 w-10 rounded-full border-[#e4d8c2] bg-[#f8f5ee]/70 backdrop-blur-2xl text-muted-foreground shadow-[0_8px_30px_rgba(120,98,67,0.10)] hover:bg-[#eadfc9]/60 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
+                                className="navbar-glass hidden md:flex h-10 w-10 rounded-full text-muted-foreground hover:opacity-90"
                                 onClick={() => setCommandOpen(true)}
                             >
                                 <span className="font-mono text-xs">⌘K</span>

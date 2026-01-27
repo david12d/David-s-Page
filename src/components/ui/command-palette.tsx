@@ -38,8 +38,14 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     if (!open) return null
 
     return (
-        <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm animate-in fade-in-0">
-            <div className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-background shadow-lg animate-in fade-in-0 zoom-in-95 slide-in-from-left-1/2 slide-in-from-top-[48%] sm:rounded-lg">
+        <div
+            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm animate-in fade-in-0"
+            onClick={() => onOpenChange(false)}
+        >
+            <div
+                className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-background shadow-lg animate-in fade-in-0 zoom-in-95 slide-in-from-left-1/2 slide-in-from-top-[48%] sm:rounded-lg"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
                     <div className="flex items-center border-b px-3">
                         <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
@@ -68,6 +74,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                                     <Command.Item
                                         key={item.path}
                                         onSelect={() => handleSelect(() => router.push(item.path))}
+                                        onClick={() => handleSelect(() => router.push(item.path))}
                                         className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                                     >
                                         <Icon className="mr-2 h-4 w-4" />
@@ -83,6 +90,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                                     <Command.Item
                                         key={item.url}
                                         onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                        onClick={() => handleSelect(() => window.open(item.url, "_blank"))}
                                         className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                                     >
                                         <Icon className="mr-2 h-4 w-4" />
@@ -98,6 +106,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                                     <Command.Item
                                         key={item.url}
                                         onSelect={() => handleSelect(() => window.open(item.url, "_blank"))}
+                                        onClick={() => handleSelect(() => window.open(item.url, "_blank"))}
                                         className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                                     >
                                         <Icon className="mr-2 h-4 w-4" />

@@ -34,7 +34,7 @@ export function ThemeToggle() {
             <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
+                className="navbar-glass h-10 w-10 rounded-full text-muted-foreground hover:opacity-90"
             >
                 <Sun className="h-4 w-4" />
                 <span className="sr-only">Toggle theme</span>
@@ -46,7 +46,7 @@ export function ThemeToggle() {
         <Button
             variant="outline"
             size="icon"
-            className="h-10 w-10 rounded-full border-[#d4c9b5] bg-[#e8e0d0]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
+            className="navbar-glass h-10 w-10 rounded-full text-muted-foreground hover:opacity-90"
             onClick={toggleTheme}
         >
             {isDark ? (
