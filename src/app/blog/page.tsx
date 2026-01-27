@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Calendar, Clock } from "lucide-react"
+import { Clock } from "lucide-react"
 import { allBlogPosts } from "contentlayer/generated"
 import { GradientText } from "@/components/ui/gradient-text"
+import { RelativeTime } from "@/components/ui/relative-time"
 import { blogPageContent } from "@/content/pages/blog"
 
 const container = {
@@ -80,16 +81,7 @@ export default function BlogPage() {
                                         ))}
                                     </div>
                                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                        <div className="flex items-center gap-1">
-                                            <Calendar className="h-4 w-4" />
-                                            <time dateTime={post.date}>
-                                                {new Date(post.date).toLocaleDateString('en-US', {
-                                                    month: 'short',
-                                                    day: 'numeric',
-                                                    year: 'numeric'
-                                                })}
-                                            </time>
-                                        </div>
+                                        <RelativeTime date={post.date} />
                                         <div className="flex items-center gap-1">
                                             <Clock className="h-4 w-4" />
                                             <span>{post.readTime}</span>
