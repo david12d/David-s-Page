@@ -35,21 +35,17 @@ const allTags = Array.from(
 ).sort()
 
 export default function BlogPage() {
-    const [selectedTags, setSelectedTags] = useState<string[]>([])
+    const [selectedTag, setSelectedTag] = useState<string | null>(null)
+    const [hasInteracted, setHasInteracted] = useState(false)
 
     const filteredPosts = useMemo(() => {
-        if (selectedTags.length === 0) return sortedPosts
-        return sortedPosts.filter((post) =>
-            post.tags.some((tag) => selectedTags.includes(tag))
-        )
-    }, [selectedTags])
+        if (!selectedTag) return sortedPosts
+        return sortedPosts.filter((post) => post.tags.includes(selectedTag))
+    }, [selectedTag])
 
-    const toggleTag = (tag: string) => {
-        setSelectedTags((prev) =>
-            prev.includes(tag)
-                ? prev.filter((t) => t !== tag)
-                : [...prev, tag]
-        )
+    const handleTagClick = (tag: string | null) => {
+        setHasInteracted(true)
+        setSelectedTag(tag === selectedTag ? null : tag)
     }
 
     return (
@@ -76,9 +72,9 @@ export default function BlogPage() {
                 className="mb-8 flex flex-wrap gap-2"
             >
                 <button
-                    onClick={() => setSelectedTags([])}
+                    onClick={() => handleTagClick(null)}
                     className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                        selectedTags.length === 0
+                        selectedTag === null
                             ? "bg-primary text-primary-foreground"
                             : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }`}
@@ -88,9 +84,9 @@ export default function BlogPage() {
                 {allTags.map((tag) => (
                     <button
                         key={tag}
-                        onClick={() => toggleTag(tag)}
+                        onClick={() => handleTagClick(tag)}
                         className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                            selectedTags.includes(tag)
+                            selectedTag === tag
                                 ? "bg-primary text-primary-foreground"
                                 : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                         }`}
@@ -101,15 +97,15 @@ export default function BlogPage() {
             </motion.div>
 
             <motion.div
-                variants={container}
-                initial="hidden"
+                variants={!hasInteracted ? container : undefined}
+                initial={!hasInteracted ? "hidden" : false}
                 animate="show"
                 className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
                 {filteredPosts.map((post) => (
                     <motion.article
                         key={post.slug}
-                        variants={item}
+                        variants={!hasInteracted ? item : undefined}
                         whileHover={{ y: -4 }}
                         className="group"
                     >

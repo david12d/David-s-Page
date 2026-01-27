@@ -34,7 +34,7 @@ export function Navbar() {
 
                         {/* Center - Glassmorphism Navigation Container */}
                         <nav className="hidden md:flex flex-1 justify-center">
-                            <div className="flex items-center gap-1 rounded-full border border-[#d4c9b5] bg-[#f5f1e8]/50 backdrop-blur-xl px-3 py-2 shadow-lg dark:border-white/10 dark:bg-zinc-900/50">
+                            <div className="flex items-center gap-1 rounded-full border border-[#e4d8c2] bg-[#f8f5ee]/70 backdrop-blur-2xl px-3 py-2 shadow-[0_10px_40px_rgba(120,98,67,0.12)] dark:border-white/10 dark:bg-zinc-900/50">
                                 {navbarContent.navItems.map((item) => (
                                     <Link
                                         key={item.path}
@@ -42,8 +42,8 @@ export function Navbar() {
                                         className={cn(
                                             "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
                                             pathname === item.path
-                                                ? "bg-[#d4c9b5]/50 text-foreground dark:bg-white/10"
-                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-[#d4c9b5]/30 dark:hover:bg-white/5"
+                                                ? "bg-[#eadfc9]/60 text-foreground dark:bg-white/10"
+                                                : "text-foreground/60 hover:text-foreground/80 hover:bg-[#eadfc9]/40 dark:hover:bg-white/5"
                                         )}
                                     >
                                         {item.name}
@@ -70,7 +70,7 @@ export function Navbar() {
                             <Button
                                 variant="outline"
                                 size="icon"
-                                className="hidden md:flex h-10 w-10 rounded-full border-[#d4c9b5] bg-[#f5f1e8]/50 backdrop-blur-xl text-muted-foreground hover:bg-[#d4c9b5]/50 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
+                                className="hidden md:flex h-10 w-10 rounded-full border-[#e4d8c2] bg-[#f8f5ee]/70 backdrop-blur-2xl text-muted-foreground shadow-[0_8px_30px_rgba(120,98,67,0.10)] hover:bg-[#eadfc9]/60 dark:border-white/10 dark:bg-zinc-900/50 dark:hover:bg-white/5"
                                 onClick={() => setCommandOpen(true)}
                             >
                                 <span className="font-mono text-xs">⌘K</span>
