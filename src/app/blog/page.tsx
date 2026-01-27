@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Clock } from "lucide-react"
@@ -28,7 +29,29 @@ const sortedPosts = allBlogPosts.sort((a, b) =>
     new Date(b.date).getTime() - new Date(a.date).getTime()
 )
 
+// Extract unique tags from all posts
+const allTags = Array.from(
+    new Set(allBlogPosts.flatMap((post) => post.tags))
+).sort()
+
 export default function BlogPage() {
+    const [selectedTags, setSelectedTags] = useState<string[]>([])
+
+    const filteredPosts = useMemo(() => {
+        if (selectedTags.length === 0) return sortedPosts
+        return sortedPosts.filter((post) =>
+            post.tags.some((tag) => selectedTags.includes(tag))
+        )
+    }, [selectedTags])
+
+    const toggleTag = (tag: string) => {
+        setSelectedTags((prev) =>
+            prev.includes(tag)
+                ? prev.filter((t) => t !== tag)
+                : [...prev, tag]
+        )
+    }
+
     return (
         <div className="container mx-auto max-w-screen-2xl py-12 px-6 md:px-12 lg:px-24 md:py-24 lg:py-32">
             <motion.div
@@ -47,12 +70,43 @@ export default function BlogPage() {
             </motion.div>
 
             <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="mb-8 flex flex-wrap gap-2"
+            >
+                <button
+                    onClick={() => setSelectedTags([])}
+                    className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                        selectedTags.length === 0
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    }`}
+                >
+                    All
+                </button>
+                {allTags.map((tag) => (
+                    <button
+                        key={tag}
+                        onClick={() => toggleTag(tag)}
+                        className={`inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                            selectedTags.includes(tag)
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                        }`}
+                    >
+                        {tag}
+                    </button>
+                ))}
+            </motion.div>
+
+            <motion.div
                 variants={container}
                 initial="hidden"
                 animate="show"
                 className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-                {sortedPosts.map((post) => (
+                {filteredPosts.map((post) => (
                     <motion.article
                         key={post.slug}
                         variants={item}
