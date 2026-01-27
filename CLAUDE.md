@@ -88,9 +88,22 @@ Types: `feat`, `fix`, `docs`, `test`, `chore`, `refactor`, `style`, `perf`, `bui
 
 Branch naming: `{type}/{issue-number}-{kebab-case-description}`
 
-## Workflow Scripts
+## Development Workflow (Superpowers Skills)
 
-```bash
-.agent/scripts/start-task.sh   # Create issue, branch, get guidance
-.agent/scripts/finish-task.sh  # Commit, push, create PR
-```
+Use these skills during development:
+
+| Skill | When to Use |
+|-------|-------------|
+| `/brainstorming` | Before any creative work - new features, components, or behavior changes |
+| `/writing-plans` | When you have requirements for a multi-step task |
+| `/test-driven-development` | Before writing implementation code |
+| `/systematic-debugging` | When encountering bugs, test failures, or unexpected behavior |
+| `/verification-before-completion` | Before claiming work is complete or creating PRs |
+| `/finishing-a-development-branch` | When implementation is complete and ready to integrate |
+
+**Typical flow:**
+1. `/brainstorming` → Explore requirements and design
+2. `/writing-plans` → Create implementation plan
+3. `/test-driven-development` → Implement with tests
+4. `/verification-before-completion` → Verify everything works
+5. `/finishing-a-development-branch` → Merge, PR, or cleanup
