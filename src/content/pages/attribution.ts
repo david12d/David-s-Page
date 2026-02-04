@@ -1,6 +1,7 @@
 export const attributionPageContent = {
     pageHeading: "Attribution",
     subheading: "Journey to create this website",
+    description: "Credits, inspirations, and acknowledgments for this website.",
 
     journeyParagraphs: [
         "Hello! Welcome to my website.",
