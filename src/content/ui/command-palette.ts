@@ -23,6 +23,7 @@ export const commandPaletteContent = {
                 { icon: FolderKanban, label: "Projects", path: "/projects" },
                 { icon: FileText, label: "Blog", path: "/blog" },
                 { icon: User, label: "About", path: "/about" },
+                { icon: FileText, label: "Links", path: "/links" },
             ] as Array<{ icon: LucideIcon; label: string; path: string }>
         },
         actions: {
