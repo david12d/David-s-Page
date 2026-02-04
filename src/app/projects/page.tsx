@@ -1,19 +1,23 @@
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Suspense } from "react"
 import { GradientText } from "@/components/ui/gradient-text"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import { allProjects } from "contentlayer/generated"
+import { siteConfig } from "@/lib/site-config"
+import { ProjectsFilter } from "@/components/projects/ProjectsFilter"
 
-// Get featured projects
-// const categories = ["All", ...Array.from(new Set(allProjects.map(p => p.category)))]
+export const metadata = {
+    title: "Projects",
+    description:
+        "A portfolio of technology advisory, cloud transformation, and innovation projects across various industries.",
+    openGraph: {
+        title: "Projects",
+        description:
+            "A portfolio of technology advisory, cloud transformation, and innovation projects across various industries.",
+        url: `${siteConfig.siteUrl}/projects`,
+    },
+    alternates: {
+        canonical: `${siteConfig.siteUrl}/projects`,
+    },
+}
 
 export default function ProjectsPage() {
     return (
@@ -29,37 +33,9 @@ export default function ProjectsPage() {
                 </div>
             </div>
             <hr className="my-8" />
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {allProjects.map((project) => (
-                    <Card key={project.slug} className="flex flex-col">
-                        <CardHeader>
-                            <CardTitle>{project.title}</CardTitle>
-                            <CardDescription className="mt-2">
-                                {project.description}
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex-1">
-                            <div className="flex flex-wrap gap-2">
-                                {project.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </CardContent>
-                        <CardFooter>
-                            <Button asChild className="w-full">
-                                <Link href={project.url}>
-                                    View Project <ArrowRight className="ml-2 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        </CardFooter>
-                    </Card>
-                ))}
-            </div>
+            <Suspense fallback={<div className="text-muted-foreground">Loading projects...</div>}>
+                <ProjectsFilter projects={allProjects} />
+            </Suspense>
         </div>
     )
 }

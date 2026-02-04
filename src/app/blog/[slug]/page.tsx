@@ -4,6 +4,9 @@ import Link from "next/link"
 import { allBlogPosts } from "contentlayer/generated"
 import { Button } from "@/components/ui/button"
 import { Mdx } from "@/components/mdx"
+import { siteConfig } from "@/lib/site-config"
+import { ArticleSchema } from "@/components/seo/ArticleSchema"
+import { ShareBar } from "@/components/blog/ShareBar"
 
 interface PageProps {
     params: Promise<{
@@ -27,9 +30,38 @@ export async function generateMetadata({ params }: PageProps) {
         }
     }
 
+    const ogImage = post.image ?? siteConfig.defaultOgImage
+    const url = `${siteConfig.siteUrl}${post.url}`
+
     return {
-        title: `${post.title} | David Portfolio`,
+        title: post.title,
         description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: "article",
+            url,
+            publishedTime: post.date,
+            authors: [siteConfig.author.name],
+            tags: post.tags,
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: [ogImage],
+        },
+        alternates: {
+            canonical: url,
+        },
     }
 }
 
@@ -41,8 +73,17 @@ export default async function BlogPostPage({ params }: PageProps) {
         notFound()
     }
 
+    const postUrl = `${siteConfig.siteUrl}${post.url}`
+
     return (
         <article className="container mx-auto max-w-4xl py-12 px-6 md:px-12 lg:px-24 md:py-24">
+            <ArticleSchema
+                title={post.title}
+                description={post.excerpt}
+                url={postUrl}
+                datePublished={post.date}
+                tags={post.tags}
+            />
             <Link href="/blog" className="inline-block mb-8">
                 <Button variant="ghost" size="sm">
                     <ArrowLeft className="mr-2 h-4 w-4" />
@@ -78,6 +119,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         </span>
                     ))}
                 </div>
+                <ShareBar title={post.title} url={postUrl} />
             </header>
 
             <Mdx code={post.body.code} />

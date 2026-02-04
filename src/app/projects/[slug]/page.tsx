@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { allProjects } from "contentlayer/generated"
 import { Mdx } from "@/components/mdx"
+import { siteConfig } from "@/lib/site-config"
 
 interface ProjectPageProps {
     params: Promise<{
@@ -27,9 +28,34 @@ export async function generateMetadata({ params }: ProjectPageProps) {
         }
     }
 
+    const url = `${siteConfig.siteUrl}${project.url}`
+
     return {
-        title: `${project.title} | David Portfolio`,
+        title: project.title,
         description: project.description,
+        openGraph: {
+            title: project.title,
+            description: project.description,
+            type: "website",
+            url,
+            images: [
+                {
+                    url: siteConfig.defaultOgImage,
+                    width: 1200,
+                    height: 630,
+                    alt: project.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: project.title,
+            description: project.description,
+            images: [siteConfig.defaultOgImage],
+        },
+        alternates: {
+            canonical: url,
+        },
     }
 }
 
