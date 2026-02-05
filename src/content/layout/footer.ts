@@ -15,6 +15,7 @@ export const footerContent = {
             links: [
                 { label: "Uses", href: "/uses" },
                 { label: "Attribution", href: "/attribution" },
+                { label: "Links", href: "/links" },
             ]
         },
         more: {
